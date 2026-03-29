@@ -1,0 +1,30 @@
+---
+layout: default
+title: Films
+---
+
+<div class="section-page">
+  <header class="section-page__header">
+    <h1 class="section-page__title">Films</h1>
+  </header>
+
+  <div class="grid">
+    {% assign films = site.films | sort: 'date' | reverse %}
+    {% for film in films %}
+    <a class="grid-item" href="{{ film.url }}">
+      {% if film.thumb %}
+      <img class="grid-item__thumb" src="{{ film.thumb }}" alt="{{ film.title }}">
+      {% else %}
+      <div class="grid-item--no-thumb">
+        <div class="grid-item__thumb-placeholder"></div>
+      </div>
+      {% endif %}
+      <div class="grid-item__info">
+        <p class="grid-item__date">{{ film.date | date: "%B %Y" }}</p>
+        <h2 class="grid-item__title">{{ film.title }}</h2>
+        {% if film.subtitle %}<p class="grid-item__subtitle">{{ film.subtitle }}</p>{% endif %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>

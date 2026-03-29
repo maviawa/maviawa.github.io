@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} — {% endif %}Brume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Merriweather:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body class="{% if page.home %}home{% endif %} {% if page.bodyclass %}{{ page.bodyclass }}{% endif %}">
+
+  {% unless page.home %}
+  <nav class="nav">
+    <a href="/" class="nav__logo">
+      <svg width="32" height="26" viewBox="0 0 60 48">
+        <line x1="8" y1="14" x2="52" y2="14" stroke="rgba(232,228,220,0.85)" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="4" y1="22" x2="56" y2="22" stroke="rgba(232,228,220,0.55)" stroke-width="1" stroke-linecap="round"/>
+        <line x1="10" y1="30" x2="50" y2="30" stroke="rgba(232,228,220,0.32)" stroke-width="0.8" stroke-linecap="round"/>
+        <line x1="16" y1="37" x2="44" y2="37" stroke="rgba(232,228,220,0.15)" stroke-width="0.6" stroke-linecap="round"/>
+      </svg>
+    </a>
+    <ul class="nav__links">
+      <li><a href="/writing">Writing</a></li>
+      <li><a href="/moving-images">Moving Images</a></li>
+      <li><a href="/archives">Archives</a></li>
+    </ul>
+  </nav>
+  {% endunless %}
+
+  <main>
+    {{ content }}
+  </main>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

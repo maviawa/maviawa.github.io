@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<article class="piece">
+  {% if page.thumb %}
+  <div class="piece__hero" style="background-image: url('{{ page.thumb }}')"></div>
+  {% endif %}
+  <div class="piece__body">
+    <header class="piece__header">
+      <p class="piece__date">{{ page.date | date: "%B %Y" }}</p>
+      <h1 class="piece__title">{{ page.title }}</h1>
+      {% if page.subtitle %}
+      <p class="piece__subtitle">{{ page.subtitle }}</p>
+      {% endif %}
+    </header>
+    <div class="piece__content">
+      {{ content }}
+    </div>
+  </div>
+</article>

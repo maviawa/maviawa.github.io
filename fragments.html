@@ -1,0 +1,26 @@
+---
+layout: default
+title: Fragments
+---
+
+<div class="section-page">
+  <header class="section-page__header">
+    <h1 class="section-page__title">Fragments</h1>
+  </header>
+
+  <div class="fragments-list">
+    {% assign fragments = site.fragments | sort: 'date' | reverse %}
+    {% for fragment in fragments %}
+    <a class="fragment-card" href="{{ fragment.url }}">
+      {% if fragment.thumb %}
+      <img class="fragment-card__thumb" src="{{ fragment.thumb }}" alt="{{ fragment.title }}">
+      {% endif %}
+      <div class="fragment-card__body">
+        <p class="grid-item__date">{{ fragment.date | date: "%d %B %Y" }}</p>
+        <h2 class="grid-item__title">{{ fragment.title }}</h2>
+        {% if fragment.subtitle %}<p class="grid-item__subtitle">{{ fragment.subtitle }}</p>{% endif %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>

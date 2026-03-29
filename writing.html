@@ -1,0 +1,22 @@
+---
+layout: default
+title: Writing
+bodyclass: writing-page
+---
+
+<div class="writing-section">
+  <div class="writing-grid">
+    {% assign pieces = site.writing | sort: 'date' | reverse %}
+    {% for piece in pieces %}
+    <a class="writing-card {% if forloop.first %}writing-card--featured{% endif %}" href="{{ piece.url }}" {% if piece.thumb %}style="background-image: url('{{ piece.thumb }}')"{% endif %}>
+      <div class="writing-card__overlay"></div>
+      <div class="writing-card__info">
+        <p class="writing-card__date">{{ piece.date | date: "%B %Y" }}</p>
+        <h2 class="writing-card__title">{{ piece.title }}</h2>
+        {% if piece.subtitle %}<p class="writing-card__subtitle">{{ piece.subtitle }}</p>{% endif %}
+        {% if piece.excerpt %}<p class="writing-card__excerpt">{{ piece.excerpt | strip_html | truncatewords: 20 }}</p>{% endif %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>

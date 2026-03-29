@@ -1,0 +1,20 @@
+---
+layout: default
+title: Archive
+---
+
+<div class="section-page">
+  <header class="section-page__header">
+    <h1 class="section-page__title">Archive</h1>
+  </header>
+
+  <div class="archive-grid">
+    {% if site.data.archive %}
+      {% for image in site.data.archive %}
+      <div class="archive-grid__item">
+        <img src="{{ image.src }}" alt="{{ image.alt }}">
+      </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>

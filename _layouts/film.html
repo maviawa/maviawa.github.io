@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<article class="film-piece">
+  <div class="film-piece__body">
+    <header class="film-piece__header">
+      <p class="piece__date">{{ page.date | date: "%B %Y" }}</p>
+      <h1 class="piece__title">{{ page.title }}</h1>
+      {% if page.subtitle %}<p class="piece__subtitle">{{ page.subtitle }}</p>{% endif %}
+    </header>
+    {% if page.vimeo %}
+    <div class="film-piece__embed">
+      <iframe src="https://player.vimeo.com/video/{{ page.vimeo }}?title=0&byline=0&portrait=0&color=ffffff" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    {% endif %}
+    {% if page.youtube %}
+    <div class="film-piece__embed">
+      <iframe src="https://www.youtube.com/embed/{{ page.youtube }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    {% endif %}
+    <div class="piece__content">
+      {{ content }}
+    </div>
+  </div>
+</article>
