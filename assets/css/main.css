@@ -984,3 +984,13 @@ cat >> ~/Documents/brume/assets/css/main.css << 'EOF'
 .nav .nav__links {
   gap: 6rem;
 }
+
+.piece__content p {
+  text-align: justify;
+}
+
+.piece__content p,
+.piece__content {
+  text-align: justify !important;
+  hyphens: auto !important;
+}
