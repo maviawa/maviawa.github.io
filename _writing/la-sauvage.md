@@ -1,7 +1,7 @@
 ---
 title: La Sauvage
 subtitle: Of Mud and Tellurian Gods
-date: 2026-03-01
+date: 2026-03-20
 thumb: /assets/images/IMG_7798.JPG
 excerpt: I don't have a god. But I have this. The ice and the canyon and the steppe and the thing moving across my back in the dark.
 ---
@@ -17,6 +17,8 @@ Then I turned around.
 The slope was pure ice. The same slope I had walked up without thinking, carried by anger. The rope hung slack between stakes that moved when I touched them. There was nothing to catch me if I slipped. Nothing at all. Black rock, white sky, the falls hammering down like they had for thousands of years. I sat down on the ice and moved inch by inch on my hands and my backside, cheeks stinging, nose running, the cold burning through my clothes. The ice was smooth and indifferent and the water was very far down and I was ten years old and completely alone and the world was enormous and did not care about me at all.
 
 I liked that. Some part of me had always needed exactly that — no guidance, no surveillance, no help. Just the land and the consequence.
+
+![](/assets/images/IMG_7785.JPG)
 
 Eventually I made it down. I walked back to the bus, to my mother and all the rest of them. I did not say anything. Because I did not want to be scolded. And because it was mine. My whole body was shaking — that deep trembling after fear runs its course. Beneath the terror something bright and animal and completely awake. I had never felt so alive. I wanted more.
 
@@ -36,7 +38,11 @@ Do not get me wrong — I still need a den. I need silence, peace and warmth. I 
 
 In Kazakhstan I rode for three days through the Tian Shan on a horse named Typhoon who ignored me until I stopped forcing him. Then we found each other. The land was gold and rust and enormous. The mountains erased themselves at the horizon. We galloped — wind tearing breath from my lungs, the animal beneath me fully alive and lending me its power. No language, no worry, no self to manage. Just speed and gold light and the feeling of not needing to be anything more.
 
+![](/assets/images/home.jpg)
+
 In Namibia, we went down into the Fish River Canyon. We jumped from rock to rock into the belly of the giant, past the carcasses of antelopes, swam in the river at the bottom. Then we turned around. The climb back was under full African sun. My legs stopped working somewhere in the middle — not tired, done. No strength left and no other option. Our guide floated up ahead, built for this in a way I was not. There was nothing to do but keep moving. Sand, loose rock, everything slipping, the sun pressing down like a hand. When we reached the top the staff were laughing. We did not think you would make it, they said. I was covered in dust and sweat and I could feel every muscle I had. My body was wrecked and completely present.
+
+![](/assets/images/IMG_7783.jpg)
 
 You would not know it from looking at me. I am cold, distant, self-contained. I do not offer much and most people do not push past that, which suits me fine. But underneath there is something feral. Something that needs to run hard and come back bruised. Something that wants the mark. The mud on skin, the salt of dried sweat, the clean ache of a body well used — that is not the price. That is the point.
 
