@@ -5,7 +5,7 @@ layout: default
 <article class="film-piece">
   <div class="film-piece__body">
     <header class="film-piece__header">
-      <p class="piece__date">{{ page.date | date: "%B %Y" }}</p>
+      <p class="piece__date">{{ page.date | date: "%Y" }}</p>
       <h1 class="piece__title">{{ page.title }}</h1>
       {% if page.subtitle %}<p class="piece__subtitle">{{ page.subtitle }}</p>{% endif %}
     </header>
@@ -16,7 +16,7 @@ layout: default
     {% endif %}
     {% if page.youtube %}
     <div class="film-piece__embed">
-      <iframe src="https://www.youtube.com/embed/{{ page.youtube }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/{{ page.youtube }}?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     {% endif %}
     <div class="piece__content">
