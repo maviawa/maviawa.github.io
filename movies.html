@@ -1,32 +1,37 @@
 ---
 layout: default
-title: Moving Images
+title: Movies
 ---
 
-<div class="films-section">
-  <div class="films-grid">
-    {% assign films = site.films | sort: 'date' | reverse %}
-    {% for film in films %}
-    <a class="film-card" href="{{ film.url }}">
-      <div class="film-card__thumb">
-        {% if film.thumb %}
-        <img src="{{ film.thumb }}" alt="{{ film.title }}">
-        {% else %}
-        <div class="film-card__placeholder"></div>
-        {% endif %}
-        <div class="film-card__play">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <circle cx="10" cy="10" r="9.5" stroke="rgba(232,228,220,0.6)" stroke-width="1"/>
-            <path d="M8 6.5L14 10L8 13.5V6.5Z" fill="rgba(232,228,220,0.9)"/>
-          </svg>
-        </div>
-      </div>
-      <div class="film-card__info">
-        <p class="film-card__date">{{ film.date | date: "%B %Y" }}</p>
-        <h2 class="film-card__title">{{ film.title }}</h2>
-        {% if film.subtitle %}<p class="film-card__subtitle">{{ film.subtitle }}</p>{% endif %}
-      </div>
-    </a>
-    {% endfor %}
-  </div>
+<style>
+.coming-soon {
+  min-height: 100vh;
+  background: #111110;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.coming-soon__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(60px, 12vw, 140px);
+  letter-spacing: 0.1em;
+  color: rgba(232,228,220,0.55);
+  line-height: 1;
+}
+
+.coming-soon__sub {
+  font-family: 'Merriweather', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(232,228,220,0.2);
+}
+</style>
+
+<div class="coming-soon">
+  <h1 class="coming-soon__title">Coming Soon</h1>
+  <p class="coming-soon__sub">films in progress</p>
 </div>

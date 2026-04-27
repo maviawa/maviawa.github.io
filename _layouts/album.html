@@ -1,0 +1,141 @@
+---
+layout: default
+---
+
+<div class="album-page">
+  <header class="album-page__header">
+    <h1 class="album-page__title">{{ page.title }}</h1>
+    {% if page.location %}<p class="album-page__location">{{ page.location }}</p>{% endif %}
+  </header>
+  <div class="album-page__grid">
+    {% for photo in page.photos %}
+    <div class="album-photo" onclick="openPhoto('{{ photo }}')">
+      <img src="{{ photo }}" alt="">
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img class="lightbox__img" id="lightbox-img" src="" alt="">
+  <button class="lightbox__close" onclick="closeLightbox()">&#215;</button>
+</div>
+
+<style>
+.album-page {
+  min-height: 100vh;
+  background: #111110;
+  padding: calc(80px + 2rem) 1.5rem 6rem;
+}
+
+.album-page__header {
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.album-page__title {
+  font-family: 'Libre Caslon Text', serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 400;
+  color: rgba(232,228,220,0.9);
+  margin-bottom: 0.5rem;
+}
+
+.album-page__location {
+  font-family: 'Merriweather', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(232,228,220,0.25);
+}
+
+.album-page__grid {
+  columns: 3;
+  column-gap: 8px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.album-photo {
+  break-inside: avoid;
+  margin-bottom: 8px;
+  overflow: hidden;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.album-photo img {
+  width: 100%;
+  display: block;
+  filter: brightness(0.88) saturate(0.85);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.album-photo:hover img {
+  filter: brightness(1) saturate(1);
+  transform: scale(1.02);
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(17,17,16,0.96);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox__img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 2px;
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  color: rgba(232,228,220,0.5);
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.3s;
+  line-height: 1;
+}
+
+.lightbox__close:hover { color: rgba(232,228,220,1); }
+
+@media (max-width: 768px) {
+  .album-page__grid { columns: 2; }
+}
+
+@media (max-width: 480px) {
+  .album-page__grid { columns: 1; }
+}
+</style>
+
+<script>
+function openPhoto(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+</script>

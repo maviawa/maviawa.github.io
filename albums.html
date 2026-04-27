@@ -1,0 +1,104 @@
+---
+layout: default
+title: Albums
+---
+
+<style>
+.albums-section {
+  min-height: 100vh;
+  background: #111110;
+  padding: calc(80px + 3rem) 2.5rem 6rem;
+}
+
+.albums-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.album-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 3/2;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #1c1c1a;
+  cursor: pointer;
+}
+
+.album-card__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.65) saturate(0.8);
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.album-card:hover .album-card__bg {
+  filter: brightness(0.85) saturate(1);
+  transform: scale(1.03);
+}
+
+.album-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(17,17,16,0.85) 0%, rgba(17,17,16,0.05) 60%);
+}
+
+.album-card__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  z-index: 2;
+}
+
+.album-card__title {
+  font-family: 'Libre Caslon Text', serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #e8e4dc;
+  line-height: 1.2;
+  transition: color 0.3s;
+}
+
+.album-card:hover .album-card__title { color: #c9b99a; }
+
+.album-card__count {
+  margin-top: 0.3rem;
+  font-family: 'Merriweather', serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(232,228,220,0.3);
+}
+
+@media (max-width: 768px) {
+  .albums-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .albums-section { padding: calc(80px + 1.5rem) 1.2rem 4rem; }
+}
+
+@media (max-width: 480px) {
+  .albums-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="albums-section">
+  <div class="albums-grid">
+    {% assign albums = site.albums | sort: 'date' | reverse %}
+    {% for album in albums %}
+    <a class="album-card" href="{{ album.url }}">
+      {% if album.cover %}
+      <div class="album-card__bg" style="background-image: url('{{ album.cover }}')"></div>
+      {% endif %}
+      <div class="album-card__overlay"></div>
+      <div class="album-card__info">
+        <h2 class="album-card__title">{{ album.title }}</h2>
+        {% if album.location %}<p class="album-card__count">{{ album.location }}</p>{% endif %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>

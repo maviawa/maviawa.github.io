@@ -18,6 +18,9 @@ collections:
   fragments:
     output: true
     permalink: /fragments/:name/
+  albums:
+    output: true
+    permalink: /albums/:name/
 
 defaults:
   - scope:
@@ -35,3 +38,8 @@ defaults:
       type: fragments
     values:
       layout: piece
+  - scope:
+      path: ""
+      type: albums
+    values:
+      layout: album
