@@ -922,3 +922,37 @@ body.home .nav__home {
 .home-contact {
   bottom: 1.5rem !important;
 }
+
+@media (max-width: 768px) {
+  /* Hide Brume on mobile nav - too cramped */
+  .nav__home {
+    display: none !important;
+  }
+
+  /* Tighter nav links on mobile */
+  .nav .nav__links {
+    gap: 2rem !important;
+    position: static !important;
+    transform: none !important;
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .nav {
+    justify-content: center !important;
+    padding: 1.5rem 1.2rem !important;
+  }
+
+  /* Home page bottom content - push left */
+  .home-hero__bottom {
+    padding: 0 1.5rem 3rem !important;
+  }
+
+  .home-hero__brume {
+    font-size: clamp(60px, 16vw, 90px) !important;
+  }
+
+  .home-hero__line {
+    font-size: 0.82rem !important;
+  }
+}
