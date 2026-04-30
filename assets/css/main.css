@@ -956,3 +956,24 @@ body.home .nav__home {
     font-size: 0.82rem !important;
   }
 }
+
+@media (max-width: 768px) {
+  .home-hero__bottom {
+    padding: 0 0 3rem 1.5rem !important;
+  }
+
+  body:not(.home) .nav__home {
+    display: block !important;
+    font-size: 0.6rem !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  body:not(.home) .nav .nav__links {
+    gap: 1.5rem !important;
+  }
+
+  body:not(.home) .nav {
+    justify-content: space-between !important;
+    padding: 1.2rem 1.2rem !important;
+  }
+}
