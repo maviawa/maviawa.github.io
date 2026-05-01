@@ -977,3 +977,52 @@ body.home .nav__home {
     padding: 1.2rem 1.2rem !important;
   }
 }
+
+@media (max-width: 768px) {
+  .home-hero__bottom {
+    padding: 0 1rem 3rem 0.8rem !important;
+  }
+
+  .home-hero__brume {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  /* Both home and interior nav identical on mobile */
+  .nav,
+  body.home .nav {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 1.5rem 0.8rem 1.5rem 0.8rem !important;
+    position: relative !important;
+  }
+
+  .nav .nav__links,
+  body.home .nav .nav__links {
+    position: static !important;
+    transform: none !important;
+    display: flex !important;
+    gap: 1.2rem !important;
+    justify-content: flex-end !important;
+    margin-left: auto !important;
+  }
+
+  body.home .nav__home {
+    visibility: visible !important;
+    display: block !important;
+    flex-shrink: 0 !important;
+  }
+
+  .nav__home {
+    display: block !important;
+    flex-shrink: 0 !important;
+    font-size: 0.6rem !important;
+    letter-spacing: 0.15em !important;
+  }
+
+  .nav .nav__links a {
+    font-size: 0.6rem !important;
+    letter-spacing: 0.15em !important;
+  }
+}
