@@ -1,0 +1,170 @@
+---
+layout: default
+title: Album
+---
+
+<style>
+.feed-section {
+  min-height: 100vh;
+  background: #0b0b0d;
+  padding: calc(80px + 2rem) 1rem 6rem;
+}
+
+.feed-grid {
+  columns: 3;
+  column-gap: 8px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feed-item {
+  break-inside: avoid;
+  margin-bottom: 8px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 3px;
+  display: block;
+}
+
+.feed-item img {
+  width: 100%;
+  display: block;
+  filter: brightness(0.88) saturate(0.85);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.feed-item:hover img {
+  filter: brightness(1) saturate(1);
+  transform: scale(1.02);
+}
+
+.feed-item__album-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1rem 1rem;
+  background: linear-gradient(to top, rgba(11,11,13,0.9) 0%, transparent 100%);
+  z-index: 2;
+}
+
+.feed-item__album-title {
+  font-family: 'Libre Caslon Text', serif;
+  font-size: 1rem;
+  color: rgba(232,228,220,0.9);
+  font-weight: 400;
+}
+
+.feed-item__album-sub {
+  font-family: 'Merriweather', serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(232,228,220,0.4);
+  margin-top: 0.2rem;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(11,11,13,0.97);
+  z-index: 1000;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  cursor: pointer;
+}
+
+.lightbox.open { display: flex; }
+
+.lightbox__img {
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 2px;
+}
+
+.lightbox__caption {
+  margin-top: 1.2rem;
+  font-family: 'Libre Caslon Text', serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: rgba(232,228,220,0.45);
+  text-align: center;
+  max-width: 500px;
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: rgba(232,228,220,0.4);
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: color 0.3s;
+  line-height: 1;
+}
+
+.lightbox__close:hover { color: rgba(232,228,220,0.9); }
+
+@media (max-width: 768px) {
+  .feed-grid { columns: 2; column-gap: 6px; }
+  .feed-item { margin-bottom: 6px; }
+}
+</style>
+
+<div class="feed-section">
+  <div class="feed-grid">
+
+    {% for photo in site.data.photos %}
+    <div class="feed-item" onclick="openPhoto('{{ photo.image }}', '{{ photo.caption }}')">
+      <img src="{{ photo.image }}" alt="{{ photo.caption }}">
+    </div>
+    {% endfor %}
+
+    {% assign albums = site.albums | sort: 'date' | reverse %}
+    {% for album in albums %}
+    {% if album.photos %}
+    <a class="feed-item" href="{{ album.url }}">
+      {% if album.cover %}
+      <img src="{{ album.cover }}" alt="{{ album.title }}">
+      {% endif %}
+      <div class="feed-item__album-label">
+        <p class="feed-item__album-title">{{ album.title }}</p>
+        {% if album.location %}<p class="feed-item__album-sub">{{ album.location }}</p>{% endif %}
+      </div>
+    </a>
+    {% endif %}
+    {% endfor %}
+
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox__close" onclick="closeLightbox()">&#215;</button>
+  <img class="lightbox__img" id="lightbox-img" src="" alt="">
+  <p class="lightbox__caption" id="lightbox-caption"></p>
+</div>
+
+<script>
+function openPhoto(src, caption) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-caption').textContent = caption || '';
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+</script>

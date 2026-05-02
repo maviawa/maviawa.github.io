@@ -1026,3 +1026,25 @@ body.home .nav__home {
     letter-spacing: 0.15em !important;
   }
 }
+
+@media (max-width: 768px) {
+  .home-hero__bottom {
+    padding: 0 1rem 3rem 0rem !important;
+    margin-left: 0 !important;
+  }
+
+  .home-hero__brume {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  .home-hero__line {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  body.home .nav__home {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}
