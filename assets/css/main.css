@@ -1048,3 +1048,27 @@ body.home .nav__home {
     visibility: hidden !important;
   }
 }
+
+@media (max-width: 768px) {
+  .home-hero__bottom {
+    padding-left: 0.5rem !important;
+    padding-right: 1rem !important;
+  }
+
+  body.home .nav__home {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  body:not(.home) .nav__home {
+    display: block !important;
+    visibility: visible !important;
+    font-size: 0.52rem !important;
+    letter-spacing: 0.15em !important;
+    color: rgba(232,228,220,0.35) !important;
+  }
+
+  body:not(.home) .nav .nav__links a {
+    font-size: 0.6rem !important;
+  }
+}
