@@ -2,7 +2,7 @@
 title: In the Winter Night
 subtitle: somewhere in a rain-soaked forest
 date: 2026-02-08
-thumb: /assets/images/IMG_8256.JPG
+thumb: /assets/images/IMG_0989.JPG
 excerpt: It was a moonless January night. Rain fell in a fine, unbroken descent — not to cleanse, but to seep and remain, darkening trunks to ink and softening the ground to treachery.
 ---
 

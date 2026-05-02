@@ -1094,3 +1094,11 @@ body.home .nav__home {
     top: 2px !important;
   }
 }
+
+@media (max-width: 768px) {
+  .home-hero__bottom {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: -1rem !important;
+  }
+}
