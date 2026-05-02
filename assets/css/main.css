@@ -1072,3 +1072,25 @@ body.home .nav__home {
     font-size: 0.6rem !important;
   }
 }
+
+@media (max-width: 768px) {
+  .home-hero__bottom {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  .home-hero__brume {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .home-hero__line {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  body:not(.home) .nav__home {
+    position: relative !important;
+    top: 2px !important;
+  }
+}
