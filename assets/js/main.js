@@ -11,3 +11,14 @@ const hero = document.querySelector('.home-hero');
 if (hero) {
   setTimeout(() => hero.classList.add('loaded'), 100);
 }
+
+function toggleLatest() {
+  const drawer = document.getElementById('latest-drawer');
+  drawer.classList.toggle('open');
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.getElementById('latest-drawer').classList.remove('open');
+  }
+});

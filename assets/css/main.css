@@ -1102,3 +1102,185 @@ body.home .nav__home {
     margin-left: -1rem !important;
   }
 }
+
+@media (min-width: 769px) {
+  .nav__home {
+    position: relative !important;
+    top: 0.5px !important;
+  }
+}
+
+.latest-card {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  z-index: 10;
+  width: 160px;
+}
+
+.latest-card__label {
+  font-family: 'Merriweather', serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(232,228,220,0.25);
+  margin-bottom: 0.5rem;
+}
+
+.latest-card__link {
+  display: block;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.latest-card__link:hover { opacity: 0.8; }
+
+.latest-card__thumb {
+  width: 100%;
+  height: 90px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 3px;
+  filter: brightness(0.7) saturate(0.8);
+  margin-bottom: 0.5rem;
+  transition: filter 0.3s;
+}
+
+.latest-card__link:hover .latest-card__thumb {
+  filter: brightness(0.9) saturate(1);
+}
+
+.latest-card__title {
+  font-family: 'Libre Caslon Text', serif;
+  font-size: 0.75rem;
+  color: rgba(232,228,220,0.6);
+  line-height: 1.3;
+}
+
+@media (max-width: 768px) {
+  .latest-card {
+    display: none;
+  }
+}
+
+.latest-card {
+  position: absolute;
+  top: 5rem;
+  right: 2.5rem;
+  bottom: auto;
+  z-index: 10;
+  width: 220px;
+}
+
+.latest-card__thumb {
+  height: 130px;
+}
+
+.latest-card__title {
+  font-size: 0.9rem;
+}
+
+.latest-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2.5rem;
+  z-index: 10;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Merriweather', serif;
+  font-size: 0.68rem;
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(232,228,220,0.5);
+  transition: color 0.3s;
+  padding: 0;
+}
+
+.latest-btn:hover { color: rgba(232,228,220,1); }
+
+.latest-drawer {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 300px;
+  height: 100vh;
+  background: rgba(11,11,13,0.97);
+  backdrop-filter: blur(20px);
+  z-index: 200;
+  padding: 4rem 2rem 2rem;
+  transition: right 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  border-left: 1px solid rgba(255,255,255,0.05);
+}
+
+.latest-drawer.open {
+  right: 0;
+}
+
+.latest-drawer__close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: rgba(232,228,220,0.3);
+  transition: color 0.3s;
+  line-height: 1;
+}
+
+.latest-drawer__close:hover { color: rgba(232,228,220,0.8); }
+
+.latest-drawer__label {
+  font-family: 'Merriweather', serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(232,228,220,0.25);
+  margin-bottom: 0.8rem;
+}
+
+.latest-drawer__item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.latest-drawer__item:hover { opacity: 0.7; }
+
+.latest-drawer__thumb {
+  width: 70px;
+  height: 50px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 2px;
+  filter: brightness(0.8) saturate(0.8);
+  flex-shrink: 0;
+}
+
+.latest-drawer__thumb--empty {
+  background: #1c1c1a;
+}
+
+.latest-drawer__title {
+  font-family: 'Libre Caslon Text', serif;
+  font-size: 0.85rem;
+  color: rgba(232,228,220,0.7);
+  line-height: 1.3;
+}
+
+@media (max-width: 768px) {
+  .latest-btn { display: none; }
+  .latest-drawer { display: none; }
+}
+
+.latest-btn {
+  z-index: 200 !important;
+}

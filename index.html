@@ -14,7 +14,7 @@ home: true
       <li><a href="/movies">Movies</a></li>
       <li><a href="/album">Album</a></li>
     </ul>
-    <div></div>
+    <button class="latest-btn" id="latest-btn">Latest</button>
   </nav>
 
   <div class="home-hero__bottom">
@@ -25,4 +25,50 @@ home: true
 
   <a href="/contact" class="home-contact">contact</a>
 
+  <div class="latest-drawer" id="latest-drawer">
+    <button class="latest-drawer__close" id="latest-close">&#215;</button>
+
+    <div class="latest-drawer__section">
+      <p class="latest-drawer__label">Writing</p>
+      <a class="latest-drawer__item" href="/writing/la-sauvage">
+        <div class="latest-drawer__thumb" style="background-image: url('/assets/images/IMG_7798.JPG')"></div>
+        <p class="latest-drawer__title">La Sauvage</p>
+      </a>
+    </div>
+
+    <div class="latest-drawer__section">
+      <p class="latest-drawer__label">Movies</p>
+      <a class="latest-drawer__item" href="/movies">
+        <div class="latest-drawer__thumb latest-drawer__thumb--empty"></div>
+        <p class="latest-drawer__title">Coming soon</p>
+      </a>
+    </div>
+
+    <div class="latest-drawer__section">
+      <p class="latest-drawer__label">Album</p>
+      <a class="latest-drawer__item" href="/album">
+        <div class="latest-drawer__thumb" style="background-image: url('/assets/images/IMG_6869.JPG')"></div>
+        <p class="latest-drawer__title">Kyrgyzstan</p>
+      </a>
+    </div>
+  </div>
+
 </section>
+
+<script>
+var btn = document.getElementById('latest-btn');
+var drawer = document.getElementById('latest-drawer');
+var close = document.getElementById('latest-close');
+
+btn.onclick = function() {
+  drawer.classList.toggle('open');
+};
+
+close.onclick = function() {
+  drawer.classList.remove('open');
+};
+
+document.onkeydown = function(e) {
+  if (e.key === 'Escape') drawer.classList.remove('open');
+};
+</script>
