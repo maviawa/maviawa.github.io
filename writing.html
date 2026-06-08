@@ -3,11 +3,105 @@ layout: default
 title: Writing
 ---
 
+<style>
+.writing-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(80px + 2rem) 2.5rem 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  gap: 2rem;
+}
+
+.collections {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.collection-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Merriweather', serif;
+  font-size: 0.68rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(232,228,220,0.35);
+  transition: color 0.3s;
+  padding: 0;
+}
+
+.collection-btn:hover { color: rgba(232,228,220,0.8); }
+.collection-btn.active { color: rgba(232,228,220,0.9); border-bottom: 1px solid rgba(232,228,220,0.4); padding-bottom: 2px; }
+
+.search-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  cursor: pointer;
+  color: rgba(232,228,220,0.4);
+  transition: color 0.3s;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  padding: 0;
+  line-height: 1;
+}
+
+.search-icon:hover { color: rgba(232,228,220,0.8); }
+
+.search-input {
+  width: 0;
+  opacity: 0;
+  border: none;
+  border-bottom: 1px solid rgba(232,228,220,0.2);
+  background: transparent;
+  color: rgba(232,228,220,0.8);
+  font-family: 'Merriweather', serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  outline: none;
+  transition: width 0.4s ease, opacity 0.4s ease;
+  margin-left: 0.5rem;
+}
+
+.search-input.open {
+  width: 160px;
+  opacity: 1;
+}
+
+.search-input::placeholder {
+  color: rgba(232,228,220,0.25);
+}
+</style>
+
+<div class="writing-header">
+  <ul class="collections">
+    <li><button class="collection-btn active" data-collection="all">All</button></li>
+    <li><button class="collection-btn" data-collection="nomad-files">Nomad Files</button></li>
+  </ul>
+  <div class="search-wrap">
+    <button class="search-icon" id="search-toggle"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="6" cy="6" r="4.5" stroke="rgba(232,228,220,0.45)" stroke-width="1.1"/><line x1="9.5" y1="9.5" x2="13.5" y2="13.5" stroke="rgba(232,228,220,0.45)" stroke-width="1.1" stroke-linecap="round"/></svg></button>
+    <input class="search-input" id="search-input" type="text" placeholder="search...">
+  </div>
+</div>
+
 <div class="writing-section">
-  <div class="writing-grid">
+  <div class="writing-grid" id="writing-grid">
     {% assign pieces = site.writing | sort: 'date' | reverse %}
     {% for piece in pieces %}
-    <a class="writing-card {% if forloop.first %}writing-card--featured{% endif %}" href="{{ piece.url }}" {% if piece.thumb %}style="background-image: url('{{ piece.thumb }}')"{% endif %}>
+    <a class="writing-card {% if forloop.first %}writing-card--featured{% endif %}"
+       href="{{ piece.url }}"
+       {% if piece.thumb %}style="background-image: url('{{ piece.thumb }}')"{% endif %}
+       data-title="{{ piece.title | downcase }}"
+       data-excerpt="{{ piece.excerpt | strip_html | downcase | truncatewords: 30 }}"
+       data-collection="{{ piece.collection | default: 'none' }}">
       <div class="writing-card__overlay"></div>
       <div class="writing-card__info">
         <p class="writing-card__date">{{ piece.date | date: "%B %Y" }}</p>
@@ -19,3 +113,59 @@ title: Writing
     {% endfor %}
   </div>
 </div>
+
+<script>
+const searchToggle = document.getElementById('search-toggle');
+const searchInput = document.getElementById('search-input');
+const cards = document.querySelectorAll('.writing-card');
+const collectionBtns = document.querySelectorAll('.collection-btn');
+let activeCollection = 'all';
+
+searchToggle.addEventListener('click', function() {
+  searchInput.classList.toggle('open');
+  if (searchInput.classList.contains('open')) {
+    searchInput.focus();
+  } else {
+    searchInput.value = '';
+    filterCards();
+  }
+});
+
+searchInput.addEventListener('input', filterCards);
+
+collectionBtns.forEach(btn => {
+  btn.addEventListener('click', function() {
+    collectionBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeCollection = btn.dataset.collection;
+    filterCards();
+  });
+});
+
+function filterCards() {
+  const query = searchInput.value.toLowerCase().trim();
+  let featured = true;
+
+  cards.forEach(card => {
+    const title = card.dataset.title || '';
+    const excerpt = card.dataset.excerpt || '';
+    const collection = card.dataset.collection || 'none';
+
+    const matchesSearch = !query || title.includes(query) || excerpt.includes(query);
+    const matchesCollection = activeCollection === 'all' || collection === activeCollection;
+
+    if (matchesSearch && matchesCollection) {
+      card.style.display = 'block';
+      if (featured) {
+        card.classList.add('writing-card--featured');
+        featured = false;
+      } else {
+        card.classList.remove('writing-card--featured');
+      }
+    } else {
+      card.style.display = 'none';
+      card.classList.remove('writing-card--featured');
+    }
+  });
+}
+</script>
