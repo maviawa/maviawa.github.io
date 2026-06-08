@@ -1284,3 +1284,109 @@ body.home .nav__home {
 .latest-btn {
   z-index: 200 !important;
 }
+
+.nav__home,
+.nav__links a,
+.latest-btn {
+  text-shadow: 0 0 12px rgba(232,228,220,0.6), 0 0 30px rgba(232,228,220,0.2) !important;
+  color: rgba(232,228,220,0.75) !important;
+}
+
+.nav__home:hover,
+.nav__links a:hover,
+.latest-btn:hover {
+  text-shadow: 0 0 16px rgba(232,228,220,0.9), 0 0 40px rgba(232,228,220,0.4) !important;
+  color: rgba(232,228,220,1) !important;
+}
+
+.nav__home,
+.nav__links a,
+.latest-btn {
+  color: rgba(255,255,255,0.95) !important;
+  text-shadow: 
+    0 0 8px rgba(255,255,255,1),
+    0 0 20px rgba(255,255,255,0.9),
+    0 0 40px rgba(255,255,255,0.7),
+    0 0 80px rgba(255,255,255,0.4) !important;
+}
+
+.nav__home:hover,
+.nav__links a:hover,
+.latest-btn:hover {
+  text-shadow: 
+    0 0 8px rgba(255,255,255,1),
+    0 0 20px rgba(255,255,255,1),
+    0 0 60px rgba(255,255,255,0.9),
+    0 0 120px rgba(255,255,255,0.6) !important;
+}
+
+body.home .nav__links a {
+  color: rgba(255,255,255,0.95) !important;
+  text-shadow: 
+    0 0 8px rgba(255,255,255,1),
+    0 0 20px rgba(255,255,255,0.9),
+    0 0 40px rgba(255,255,255,0.7),
+    0 0 80px rgba(255,255,255,0.4) !important;
+}
+
+.home-hero__brume {
+  text-shadow:
+    0 0 20px rgba(255,255,255,0.8),
+    0 0 60px rgba(255,255,255,0.5),
+    0 0 120px rgba(255,255,255,0.3) !important;
+  color: rgba(255,255,255,0.75) !important;
+}
+
+
+/* ---- LUMINOUS NAV - HOME ONLY ---- */
+body.home .nav__home,
+body.home .nav__links a,
+body.home .latest-btn {
+  color: rgba(255,255,255,0.9) !important;
+  text-shadow: 
+    0 0 15px rgba(255,255,255,0.6),
+    0 0 35px rgba(255,255,255,0.25) !important;
+}
+
+body.home .nav__home:hover,
+body.home .nav__links a:hover,
+body.home .latest-btn:hover {
+  color: rgba(255,255,255,1) !important;
+  text-shadow: 
+    0 0 15px rgba(255,255,255,0.9),
+    0 0 50px rgba(255,255,255,0.4) !important;
+}
+
+/* Interior nav - same white, no glow */
+body:not(.home) .nav__home,
+body:not(.home) .nav__links a {
+  color: rgba(255,255,255,0.75) !important;
+  text-shadow: none !important;
+}
+
+body:not(.home) .nav__home:hover,
+body:not(.home) .nav__links a:hover {
+  color: rgba(255,255,255,1) !important;
+}
+
+/* BRUME - soft glow, not pixelated */
+.home-hero__brume {
+  color: rgba(255,255,255,0.82) !important;
+  text-shadow:
+    0 0 30px rgba(255,255,255,0.4),
+    0 0 80px rgba(255,255,255,0.15) !important;
+}
+
+body.home .home-contact {
+  color: rgba(255,255,255,0.9) !important;
+  text-shadow: 
+    0 0 15px rgba(255,255,255,0.6),
+    0 0 35px rgba(255,255,255,0.25) !important;
+}
+
+body.home .home-contact:hover {
+  color: rgba(255,255,255,1) !important;
+  text-shadow: 
+    0 0 15px rgba(255,255,255,0.9),
+    0 0 50px rgba(255,255,255,0.4) !important;
+}
