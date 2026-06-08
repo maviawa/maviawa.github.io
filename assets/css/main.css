@@ -1439,3 +1439,254 @@ body.home .home-contact:hover {
     0 0 40px rgba(210,225,240,0.35),
     0 0 100px rgba(210,225,240,0.15) !important;
 }
+
+.latest-drawer__header {
+  font-family: 'Merriweather', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(232,228,220,0.2);
+  margin-bottom: 0.5rem;
+}
+
+.latest-drawer__item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  transition: opacity 0.3s;
+}
+
+.latest-drawer__item:hover { opacity: 0.7; }
+
+.writing-section {
+  padding: 2rem 2.5rem 6rem !important;
+}
+
+.writing-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 24px !important;
+  padding: 0 !important;
+  background: none !important;
+}
+
+.writing-card {
+  position: relative !important;
+  display: block !important;
+  aspect-ratio: 2/3 !important;
+  height: auto !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-color: #1c1c1a !important;
+  overflow: hidden !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+}
+
+.writing-card--featured {
+  grid-column: span 1 !important;
+  height: auto !important;
+}
+
+.writing-card__overlay {
+  background: linear-gradient(
+    to top,
+    rgba(11,11,13,0.9) 0%,
+    rgba(11,11,13,0.2) 50%,
+    rgba(11,11,13,0.1) 100%
+  ) !important;
+}
+
+.writing-card__info {
+  padding: 1.2rem !important;
+}
+
+.writing-card__excerpt {
+  display: none !important;
+}
+
+.writing-card__title {
+  font-size: 1.1rem !important;
+}
+
+@media (max-width: 768px) {
+  .writing-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+  .writing-section {
+    padding: 1.5rem 1rem 4rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .writing-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.writing-card {
+  aspect-ratio: 3/2 !important;
+}
+
+.writing-card__title {
+  text-shadow:
+    0 0 20px rgba(210,225,240,0.3),
+    0 0 50px rgba(210,225,240,0.1) !important;
+}
+
+.collections-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.collections-toggle:hover svg line {
+  stroke: rgba(232,228,220,0.9);
+}
+
+.collections-drawer {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 240px;
+  height: 100vh;
+  background: rgba(11,11,13,0.97);
+  backdrop-filter: blur(20px);
+  z-index: 200;
+  padding: 4rem 2rem 2rem;
+  transition: left 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  border-right: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.collections-drawer.open {
+  left: 0;
+}
+
+.collections-drawer__close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: rgba(232,228,220,0.3);
+  transition: color 0.3s;
+  line-height: 1;
+}
+
+.collections-drawer__close:hover { color: rgba(232,228,220,0.8); }
+
+.collections-drawer__label {
+  font-family: 'Merriweather', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(232,228,220,0.2);
+}
+
+.collections-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.collections-list .collection-btn {
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  font-family: 'Libre Caslon Text', serif;
+  color: rgba(232,228,220,0.45);
+}
+
+.collections-list .collection-btn.active,
+.collections-list .collection-btn:hover {
+  color: rgba(232,228,220,0.9);
+}
+
+.collections-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.collections-toggle:hover svg line {
+  stroke: rgba(232,228,220,0.9);
+}
+
+.collections-drawer {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 240px;
+  height: 100vh;
+  background: rgba(11,11,13,0.97);
+  backdrop-filter: blur(20px);
+  z-index: 200;
+  padding: 4rem 2rem 2rem;
+  transition: left 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  border-right: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.collections-drawer.open {
+  left: 0;
+}
+
+.collections-drawer__close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: rgba(232,228,220,0.3);
+  transition: color 0.3s;
+  line-height: 1;
+}
+
+.collections-drawer__close:hover { color: rgba(232,228,220,0.8); }
+
+.collections-drawer__label {
+  font-family: 'Merriweather', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(232,228,220,0.2);
+}
+
+.collections-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.collections-list .collection-btn {
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  font-family: 'Libre Caslon Text', serif;
+  color: rgba(232,228,220,0.45);
+}
+
+.collections-list .collection-btn.active,
+.collections-list .collection-btn:hover {
+  color: rgba(232,228,220,0.9);
+}
