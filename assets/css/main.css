@@ -1775,3 +1775,9 @@ body.home .home-contact:hover {
   display: flex !important;
   align-items: center !important;
 }
+
+@media (max-width: 768px) {
+  .writing-header {
+    padding-top: calc(56px + 0.5rem) !important;
+  }
+}
