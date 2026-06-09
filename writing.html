@@ -110,15 +110,15 @@ title: Writing
     {% for piece in pieces %}
     <a class="writing-card"
        href="{{ piece.url }}"
-       {% if piece.thumb %}style="background-image: url('{{ piece.thumb }}')"{% endif %}
        data-title="{{ piece.title | downcase }}"
        data-excerpt="{{ piece.excerpt | strip_html | downcase | truncatewords: 30 }}"
        data-collection="{{ piece.collection | default: 'none' }}">
-      <div class="writing-card__overlay"></div>
+      <div class="writing-card__img" {% if piece.thumb %}style="background-image: url('{{ piece.thumb }}')"{% endif %}></div>
       <div class="writing-card__info">
         <p class="writing-card__date">{{ piece.date | date: "%B %Y" }}</p>
         <h2 class="writing-card__title">{{ piece.title }}</h2>
         {% if piece.subtitle %}<p class="writing-card__subtitle">{{ piece.subtitle }}</p>{% endif %}
+        {% if piece.excerpt %}<p class="writing-card__excerpt">{{ piece.excerpt | strip_html | truncatewords: 25 }}</p>{% endif %}
       </div>
     </a>
     {% endfor %}
