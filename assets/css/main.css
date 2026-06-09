@@ -1690,3 +1690,11 @@ body.home .home-contact:hover {
 .collections-list .collection-btn:hover {
   color: rgba(232,228,220,0.9);
 }
+
+.writing-card.hidden {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  pointer-events: none !important;
+}
