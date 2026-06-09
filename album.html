@@ -119,10 +119,20 @@ title: Album
 </style>
 
 <div class="feed-section">
+  <div class="album-search-wrap">
+    <button class="search-icon" id="album-search-toggle" onclick="toggleAlbumSearch()">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+        <circle cx="6" cy="6" r="4.5" stroke="rgba(232,228,220,0.45)" stroke-width="1.1"/>
+        <line x1="9.5" y1="9.5" x2="13.5" y2="13.5" stroke="rgba(232,228,220,0.45)" stroke-width="1.1" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <input class="search-input" id="album-search-input" type="text" placeholder="search..." oninput="filterAlbum()">
+  </div>
+
   <div class="feed-grid">
 
     {% for photo in site.data.photos %}
-    <div class="feed-item" onclick="openPhoto('{{ photo.image }}', '{{ photo.caption }}')">
+    <div class="feed-item" onclick="openPhoto('{{ photo.image }}', '{{ photo.caption }}')" data-title="{{ photo.image }}" data-caption="{{ photo.caption }}">
       <img src="{{ photo.image }}" alt="{{ photo.caption }}">
     </div>
     {% endfor %}
@@ -130,7 +140,7 @@ title: Album
     {% assign albums = site.albums | sort: 'date' | reverse %}
     {% for album in albums %}
     {% if album.photos %}
-    <a class="feed-item" href="{{ album.url }}">
+    <a class="feed-item" href="{{ album.url }}" data-title="{{ album.title | downcase }}" data-caption="{{ album.location | downcase }}">
       {% if album.cover %}
       <img src="{{ album.cover }}" alt="{{ album.title }}">
       {% endif %}
@@ -144,6 +154,26 @@ title: Album
 
   </div>
 </div>
+
+<script>
+function toggleAlbumSearch() {
+  var input = document.getElementById('album-search-input');
+  input.classList.toggle('open');
+  if (input.classList.contains('open')) input.focus();
+  else { input.value = ''; filterAlbum(); }
+}
+
+function filterAlbum() {
+  var query = document.getElementById('album-search-input').value.toLowerCase();
+  document.querySelectorAll('.feed-item').forEach(function(item) {
+    var title = (item.getAttribute('data-title') || '').toLowerCase();
+    var caption = (item.getAttribute('data-caption') || '').toLowerCase();
+    var show = !query || title.indexOf(query) > -1 || caption.indexOf(query) > -1;
+    if (show) item.classList.remove('hidden');
+    else item.classList.add('hidden');
+  });
+}
+</script>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <button class="lightbox__close" onclick="closeLightbox()">&#215;</button>

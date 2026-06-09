@@ -1717,3 +1717,61 @@ body.home .home-contact:hover {
     aspect-ratio: 4/3 !important;
   }
 }
+
+.writing-card:hover .writing-card__title {
+  color: rgba(210,225,240,0.95) !important;
+  text-shadow:
+    0 0 20px rgba(210,225,240,0.5),
+    0 0 50px rgba(210,225,240,0.2) !important;
+}
+
+.writing-card:hover .writing-card__title {
+  color: rgba(232,228,220,0.98) !important;
+  text-shadow:
+    0 0 25px rgba(232,228,220,0.7),
+    0 0 60px rgba(232,228,220,0.3) !important;
+}
+
+.album-search-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 1rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feed-item.hidden {
+  display: none !important;
+  visibility: hidden !important;
+  position: absolute !important;
+  pointer-events: none !important;
+}
+
+.album-search-wrap .search-input {
+  width: 0 !important;
+  opacity: 0 !important;
+  transition: width 0.4s ease, opacity 0.4s ease !important;
+}
+
+.album-search-wrap .search-input.open {
+  width: 160px !important;
+  opacity: 1 !important;
+}
+
+.album-search-wrap .search-input {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(232,228,220,0.2) !important;
+  color: rgba(232,228,220,0.8) !important;
+  outline: none !important;
+}
+
+.album-search-wrap .search-icon {
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
