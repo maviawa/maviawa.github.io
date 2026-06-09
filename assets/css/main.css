@@ -1781,3 +1781,28 @@ body.home .home-contact:hover {
     padding-top: calc(56px + 0.5rem) !important;
   }
 }
+
+@media (max-width: 768px) {
+  .album-search-wrap {
+    padding: calc(56px + 0.5rem) 1rem 0.8rem !important;
+  }
+
+  .album-search-wrap .search-input {
+    background: transparent !important;
+    -webkit-appearance: none !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(232,228,220,0.2) !important;
+    border-radius: 0 !important;
+    color: rgba(232,228,220,0.8) !important;
+    outline: none !important;
+    font-family: 'Merriweather', serif !important;
+    font-size: 0.68rem !important;
+  }
+
+  .album-search-wrap .search-icon {
+    background: transparent !important;
+    -webkit-appearance: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+}
