@@ -1698,3 +1698,22 @@ body.home .home-contact:hover {
   position: absolute !important;
   pointer-events: none !important;
 }
+
+@media (max-width: 768px) {
+  .writing-header {
+    padding: calc(80px + 0.8rem) 1.2rem 0.8rem !important;
+  }
+
+  .writing-section {
+    padding: 1rem 0.8rem 4rem !important;
+  }
+
+  .writing-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .writing-card {
+    aspect-ratio: 4/3 !important;
+  }
+}
