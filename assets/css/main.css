@@ -1178,7 +1178,7 @@ body.home .nav__home {
   font-size: 0.9rem;
 }
 
-.latest-btn {
+.new-btn {
   position: absolute;
   top: 2rem;
   right: 2.5rem;
@@ -1196,9 +1196,9 @@ body.home .nav__home {
   padding: 0;
 }
 
-.latest-btn:hover { color: rgba(232,228,220,1); }
+.new-btn:hover { color: rgba(232,228,220,1); }
 
-.latest-drawer {
+.new-drawer {
   position: fixed;
   top: 0;
   right: -320px;
@@ -1215,11 +1215,11 @@ body.home .nav__home {
   border-left: 1px solid rgba(255,255,255,0.05);
 }
 
-.latest-drawer.open {
+.new-drawer.open {
   right: 0;
 }
 
-.latest-drawer__close {
+.new-drawer__close {
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
@@ -1232,9 +1232,9 @@ body.home .nav__home {
   line-height: 1;
 }
 
-.latest-drawer__close:hover { color: rgba(232,228,220,0.8); }
+.new-drawer__close:hover { color: rgba(232,228,220,0.8); }
 
-.latest-drawer__label {
+.new-drawer__label {
   font-family: 'Merriweather', serif;
   font-size: 0.58rem;
   letter-spacing: 0.2em;
@@ -1243,7 +1243,7 @@ body.home .nav__home {
   margin-bottom: 0.8rem;
 }
 
-.latest-drawer__item {
+.new-drawer__item {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -1251,9 +1251,9 @@ body.home .nav__home {
   transition: opacity 0.3s;
 }
 
-.latest-drawer__item:hover { opacity: 0.7; }
+.new-drawer__item:hover { opacity: 0.7; }
 
-.latest-drawer__thumb {
+.new-drawer__thumb {
   width: 70px;
   height: 50px;
   background-size: cover;
@@ -1263,11 +1263,11 @@ body.home .nav__home {
   flex-shrink: 0;
 }
 
-.latest-drawer__thumb--empty {
+.new-drawer__thumb--empty {
   background: #1c1c1a;
 }
 
-.latest-drawer__title {
+.new-drawer__title {
   font-family: 'Libre Caslon Text', serif;
   font-size: 0.85rem;
   color: rgba(232,228,220,0.7);
@@ -1275,31 +1275,31 @@ body.home .nav__home {
 }
 
 @media (max-width: 768px) {
-  .latest-btn { display: none; }
-  .latest-drawer { display: none; }
+  .new-btn { display: none; }
+  .new-drawer { display: none; }
 }
 
-.latest-btn {
+.new-btn {
   z-index: 200 !important;
 }
 
 .nav__home,
 .nav__links a,
-.latest-btn {
+.new-btn {
   text-shadow: 0 0 12px rgba(232,228,220,0.6), 0 0 30px rgba(232,228,220,0.2) !important;
   color: rgba(232,228,220,0.75) !important;
 }
 
 .nav__home:hover,
 .nav__links a:hover,
-.latest-btn:hover {
+.new-btn:hover {
   text-shadow: 0 0 16px rgba(232,228,220,0.9), 0 0 40px rgba(232,228,220,0.4) !important;
   color: rgba(232,228,220,1) !important;
 }
 
 .nav__home,
 .nav__links a,
-.latest-btn {
+.new-btn {
   color: rgba(255,255,255,0.95) !important;
   text-shadow: 
     0 0 8px rgba(255,255,255,1),
@@ -1310,7 +1310,7 @@ body.home .nav__home {
 
 .nav__home:hover,
 .nav__links a:hover,
-.latest-btn:hover {
+.new-btn:hover {
   text-shadow: 
     0 0 8px rgba(255,255,255,1),
     0 0 20px rgba(255,255,255,1),
@@ -1339,7 +1339,7 @@ body.home .nav__links a {
 /* ---- LUMINOUS NAV - HOME ONLY ---- */
 body.home .nav__home,
 body.home .nav__links a,
-body.home .latest-btn {
+body.home .new-btn {
   color: rgba(255,255,255,0.9) !important;
   text-shadow: 
     0 0 15px rgba(255,255,255,0.6),
@@ -1348,7 +1348,7 @@ body.home .latest-btn {
 
 body.home .nav__home:hover,
 body.home .nav__links a:hover,
-body.home .latest-btn:hover {
+body.home .new-btn:hover {
   color: rgba(255,255,255,1) !important;
   text-shadow: 
     0 0 15px rgba(255,255,255,0.9),
@@ -1440,7 +1440,7 @@ body.home .home-contact:hover {
     0 0 100px rgba(210,225,240,0.15) !important;
 }
 
-.latest-drawer__header {
+.new-drawer__header {
   font-family: 'Merriweather', serif;
   font-size: 0.6rem;
   letter-spacing: 0.25em;
@@ -1449,7 +1449,7 @@ body.home .home-contact:hover {
   margin-bottom: 0.5rem;
 }
 
-.latest-drawer__item {
+.new-drawer__item {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -1458,7 +1458,7 @@ body.home .home-contact:hover {
   transition: opacity 0.3s;
 }
 
-.latest-drawer__item:hover { opacity: 0.7; }
+.new-drawer__item:hover { opacity: 0.7; }
 
 .writing-section {
   padding: 2rem 2.5rem 6rem !important;
@@ -1914,4 +1914,76 @@ body.home .home-contact:hover {
   -webkit-line-clamp: 3 !important;
   -webkit-box-orient: vertical !important;
   overflow: hidden !important;
+}
+
+.new-drawer {
+  top: 4rem !important;
+  bottom: auto !important;
+  height: auto !important;
+  border-radius: 12px !important;
+  right: 1rem !important;
+  width: 280px !important;
+  padding: 1.8rem !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5) !important;
+}
+
+
+
+
+
+
+
+
+
+.new-drawer {
+  right: -320px !important;
+  transition: right 0.4s cubic-bezier(0.25,0.46,0.45,0.94) !important;
+}
+
+.new-drawer.open {
+  right: 1rem !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.new-drawer__thumb {
+  width: 110px !important;
+  height: 80px !important;
+  flex-shrink: 0 !important;
+  background-size: cover !important;
+  background-position: center !important;
+  border-radius: 3px !important;
+}
+
+.new-drawer__title {
+  font-family: 'Libre Caslon Text', serif !important;
+  font-size: 1.1rem !important;
+  line-height: 1.3 !important;
+  color: rgba(232,228,220,0.85) !important;
+}
+
+.new-drawer__item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+  margin-bottom: 2rem !important;
+  text-decoration: none !important;
+}
+
+.new-drawer__item:hover { opacity: 0.7 !important; }
+
+.new-drawer {
+  width: 340px !important;
 }

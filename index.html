@@ -10,11 +10,11 @@ home: true
   <nav class="nav">
     <a href="/" class="nav__home">Brume</a>
     <ul class="nav__links">
-      <li><a href="/writing">Writing</a></li>
+      <li><a href="/words">Words</a></li>
       <li><a href="/movies">Movies</a></li>
-      <li><a href="/album">Album</a></li>
+      <li><a href="/albums">Albums</a></li>
     </ul>
-    <button class="latest-btn" id="latest-btn">Latest</button>
+    <button class="new-btn" id="new-btn">New</button>
   </nav>
 
   <div class="home-hero__bottom">
@@ -25,20 +25,20 @@ home: true
 
   <a href="/contact" class="home-contact">contact</a>
 
-  <div class="latest-drawer" id="latest-drawer">
-    <button class="latest-drawer__close" id="latest-close">&#215;</button>
-    <p class="latest-drawer__header">Latest</p>
+  <div class="new-drawer" id="new-drawer">
+    <button class="new-drawer__close" id="new-close">&#215;</button>
+    <p class="new-drawer__header">New</p>
     {% assign latest = site.writing | sort: 'date' | reverse %}
     {% for piece in latest limit:2 %}
-    <a class="latest-drawer__item" href="{{ piece.url }}">
+    <a class="new-drawer__item" href="{{ piece.url }}">
       {% if piece.thumb %}
-      <div class="latest-drawer__thumb" style="background-image: url('{{ piece.thumb }}')"></div>
+      <div class="new-drawer__thumb" style="background-image: url('{{ piece.thumb }}')"></div>
       {% else %}
-      <div class="latest-drawer__thumb latest-drawer__thumb--empty"></div>
+      <div class="new-drawer__thumb new-drawer__thumb--empty"></div>
       {% endif %}
       <div>
-        <p class="latest-drawer__label">{{ piece.date | date: "%B %Y" }}</p>
-        <p class="latest-drawer__title">{{ piece.title }}</p>
+        <p class="new-drawer__label">{{ piece.date | date: "%B %Y" }}</p>
+        <p class="new-drawer__title">{{ piece.title }}</p>
       </div>
     </a>
     {% endfor %}
@@ -47,19 +47,24 @@ home: true
 </section>
 
 <script>
-var btn = document.getElementById('latest-btn');
-var drawer = document.getElementById('latest-drawer');
-var close = document.getElementById('latest-close');
+window.addEventListener('load', function() {
+  var btn = document.getElementById('new-btn');
+  var drawer = document.getElementById('new-drawer');
+  var closeBtn = document.getElementById('new-close');
 
-btn.onclick = function() {
-  drawer.classList.toggle('open');
-};
-
-close.onclick = function() {
   drawer.classList.remove('open');
-};
 
-document.onkeydown = function(e) {
-  if (e.key === 'Escape') drawer.classList.remove('open');
-};
+  btn.onclick = function() {
+    drawer.classList.toggle('open');
+  };
+
+  closeBtn.onclick = function(e) {
+    e.stopPropagation();
+    drawer.classList.remove('open');
+  };
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') drawer.classList.remove('open');
+  });
+});
 </script>
