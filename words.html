@@ -82,26 +82,14 @@ title: Writing
 </style>
 
 <div class="writing-header">
-  <button class="collections-toggle" id="collections-toggle" onclick="toggleCollections()">
-    <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
-      <line x1="0" y1="1" x2="18" y2="1" stroke="rgba(232,228,220,0.5)" stroke-width="1.2" stroke-linecap="round"/>
-      <line x1="0" y1="7" x2="18" y2="7" stroke="rgba(232,228,220,0.5)" stroke-width="1.2" stroke-linecap="round"/>
-      <line x1="0" y1="13" x2="18" y2="13" stroke="rgba(232,228,220,0.5)" stroke-width="1.2" stroke-linecap="round"/>
-    </svg>
-  </button>
+  <ul class="collections-bar">
+    <li><button class="collection-btn active" data-collection="all" onclick="selectCollection(this,'all')">All</button></li>
+    <li><button class="collection-btn" data-collection="nomad-files" onclick="selectCollection(this,'nomad-files')">Nomad Files</button></li>
+  </ul>
   <div class="search-wrap">
     <button class="search-icon" id="search-toggle" onclick="toggleSearch()"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="6" cy="6" r="4.5" stroke="rgba(232,228,220,0.45)" stroke-width="1.1"/><line x1="9.5" y1="9.5" x2="13.5" y2="13.5" stroke="rgba(232,228,220,0.45)" stroke-width="1.1" stroke-linecap="round"/></svg></button>
     <input class="search-input" id="search-input" type="text" placeholder="search..." oninput="filterCards()">
   </div>
-</div>
-
-<div class="collections-drawer" id="collections-drawer">
-  <button class="collections-drawer__close" id="collections-close" onclick="closeCollections()">&#215;</button>
-  <p class="collections-drawer__label">Collections</p>
-  <ul class="collections-list">
-    <li><button class="collection-btn active" data-collection="all" onclick="selectCollection(this,'all')">All</button></li>
-    <li><button class="collection-btn" data-collection="nomad-files" onclick="selectCollection(this,'nomad-files')">Nomad Files</button></li>
-  </ul>
 </div>
 
 <div class="writing-section">
@@ -132,11 +120,8 @@ function filterCards() {
     var title = (card.getAttribute('data-title') || '').toLowerCase();
     var excerpt = (card.getAttribute('data-excerpt') || '').toLowerCase();
     var show = !query || title.indexOf(query) > -1 || excerpt.indexOf(query) > -1;
-    if (show) {
-      card.classList.remove('hidden');
-    } else {
-      card.classList.add('hidden');
-    }
+    if (show) card.classList.remove('hidden');
+    else card.classList.add('hidden');
   });
 }
 
@@ -147,18 +132,9 @@ function toggleSearch() {
   else { input.value = ''; filterCards(); }
 }
 
-function toggleCollections() {
-  document.getElementById('collections-drawer').classList.toggle('open');
-}
-
-function closeCollections() {
-  document.getElementById('collections-drawer').classList.remove('open');
-}
-
 function selectCollection(btn, collection) {
   document.querySelectorAll('.collection-btn').forEach(function(b) { b.classList.remove('active'); });
   btn.classList.add('active');
-  closeCollections();
   var query = document.getElementById('search-input').value.toLowerCase();
   document.querySelectorAll('.writing-card').forEach(function(card) {
     var title = (card.getAttribute('data-title') || '').toLowerCase();
@@ -166,7 +142,8 @@ function selectCollection(btn, collection) {
     var col = card.getAttribute('data-collection') || 'none';
     var matchSearch = !query || title.indexOf(query) > -1 || excerpt.indexOf(query) > -1;
     var matchCol = collection === 'all' || col === collection;
-    card.style.display = (matchSearch && matchCol) ? '' : 'none';
+    if (matchSearch && matchCol) card.classList.remove('hidden');
+    else card.classList.add('hidden');
   });
 }
 </script>

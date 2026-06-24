@@ -1987,3 +1987,34 @@ body.home .home-contact:hover {
 .new-drawer {
   width: 340px !important;
 }
+
+.collections-bar {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.collections-bar .collection-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Merriweather', serif;
+  font-size: 0.68rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(232,228,220,0.35);
+  transition: color 0.3s;
+  padding: 0;
+}
+
+.collections-bar .collection-btn:hover {
+  color: rgba(232,228,220,0.8);
+}
+
+.collections-bar .collection-btn.active {
+  color: rgba(232,228,220,0.9);
+  border-bottom: 1px solid rgba(232,228,220,0.4);
+  padding-bottom: 2px;
+}
