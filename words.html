@@ -1,149 +1,352 @@
 ---
 layout: default
-title: Writing
+title: Words
 ---
 
 <style>
-.writing-header {
+.words-page {
+  min-height: 100vh;
+  background: #0b0b0d;
+  padding-top: 80px;
+}
+
+.words-browse {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: calc(80px + 2rem) 2.5rem 1.5rem;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  gap: 2rem;
+  padding: 1.5rem 2.5rem 0;
 }
 
-.collections {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-  flex-wrap: wrap;
-}
-
-.collection-btn {
+.browse-btn {
   background: none;
   border: none;
   cursor: pointer;
   font-family: 'Merriweather', serif;
   font-size: 0.68rem;
   font-weight: 300;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(232,228,220,0.35);
-  transition: color 0.3s;
+  color: rgba(232,228,220,0.5);
   padding: 0;
-}
-
-.collection-btn:hover { color: rgba(232,228,220,0.8); }
-.collection-btn.active { color: rgba(232,228,220,0.9); border-bottom: 1px solid rgba(232,228,220,0.4); padding-bottom: 2px; }
-
-.search-wrap {
-  position: relative;
   display: flex;
   align-items: center;
+  gap: 0.5rem;
 }
 
-.search-icon {
-  cursor: pointer;
-  color: rgba(232,228,220,0.4);
-  transition: color 0.3s;
-  font-size: 1rem;
-  background: none;
-  border: none;
-  padding: 0;
-  line-height: 1;
+.globe-section {
+  width: 100%;
+  height: 55vh;
+  position: relative;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.search-icon:hover { color: rgba(232,228,220,0.8); }
+.globe-glow {
+  position: absolute;
+  width: 55vh;
+  height: 55vh;
+  border-radius: 50%;
+  box-shadow:
+    0 0 40px rgba(210,225,240,0.18),
+    0 0 80px rgba(200,218,240,0.10),
+    0 0 140px rgba(190,210,235,0.05);
+  pointer-events: none;
+  z-index: 0;
+}
 
-.search-input {
-  width: 0;
+#globe-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: grab;
+}
+
+#globe-canvas:active { cursor: grabbing; }
+
+.globe-tooltip {
+  position: absolute;
+  pointer-events: none;
   opacity: 0;
-  border: none;
-  border-bottom: 1px solid rgba(232,228,220,0.2);
-  background: transparent;
-  color: rgba(232,228,220,0.8);
-  font-family: 'Merriweather', serif;
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  outline: none;
-  transition: width 0.4s ease, opacity 0.4s ease;
-  margin-left: 0.5rem;
+  transition: opacity 0.3s;
+  z-index: 10;
 }
 
-.search-input.open {
+.globe-tooltip {
+  background: rgba(11,11,13,0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 6px;
+  padding: 0.6rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 0 20px rgba(210,225,240,0.1);
+  min-width: 160px;
+}
+
+.globe-tooltip__img {
   width: 160px;
-  opacity: 1;
+  height: 105px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+  filter: brightness(0.88);
 }
 
-.search-input::placeholder {
-  color: rgba(232,228,220,0.25);
+.globe-tooltip__title {
+  font-family: 'Libre Caslon Text', serif;
+  font-size: 0.82rem;
+  color: rgba(232,228,220,0.88);
+  margin-top: 0.5rem;
+  text-align: left;
+  line-height: 1.3;
+}
+
+.library-title {
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.2rem, 3vw, 2.2rem);
+  letter-spacing: 0.3em;
+  color: rgba(232,228,220,0.5);
+  padding: 0.8rem 0;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  margin: 0 2.5rem 0.3rem;
+}
+
+.writing-section {
+  padding: 0 2.5rem 6rem;
+  margin-top: -0.5rem;
 }
 </style>
 
-<div class="writing-header">
-  <ul class="collections-bar">
-    <li><button class="collection-btn active" data-collection="all" onclick="selectCollection(this,'all')">All</button></li>
-    <li><button class="collection-btn" data-collection="nomad-files" onclick="selectCollection(this,'nomad-files')">Nomad Files</button></li>
-  </ul>
-  <div class="search-wrap">
-    <button class="search-icon" id="search-toggle" onclick="toggleSearch()"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="6" cy="6" r="4.5" stroke="rgba(232,228,220,0.45)" stroke-width="1.1"/><line x1="9.5" y1="9.5" x2="13.5" y2="13.5" stroke="rgba(232,228,220,0.45)" stroke-width="1.1" stroke-linecap="round"/></svg></button>
-    <input class="search-input" id="search-input" type="text" placeholder="search..." oninput="filterCards()">
+<div class="words-page">
+
+  <div class="words-browse">
+    <button class="browse-btn" onclick="toggleBrowse()">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+        <circle cx="6" cy="6" r="4.5" stroke="rgba(232,228,220,0.5)" stroke-width="1.1"/>
+        <line x1="9.5" y1="9.5" x2="13.5" y2="13.5" stroke="rgba(232,228,220,0.5)" stroke-width="1.1" stroke-linecap="round"/>
+      </svg>
+      Browse
+    </button>
+    <input id="search-input" type="text" placeholder="search..." oninput="filterCards()"
+      style="width:0;opacity:0;border:none;border-bottom:1px solid rgba(232,228,220,0.2);background:transparent;color:rgba(232,228,220,0.8);outline:none;font-family:'Merriweather',serif;font-size:0.68rem;letter-spacing:0.1em;transition:width 0.4s,opacity 0.4s;margin-left:0.8rem;">
   </div>
+
+  <div class="globe-section" id="globe-section">
+    <div class="globe-glow"></div>
+    <canvas id="globe-canvas" style="position:relative;z-index:1;"></canvas>
+    <div class="globe-tooltip" id="globe-tooltip">
+      <img class="globe-tooltip__img" id="tooltip-img" src="" alt="">
+      <p class="globe-tooltip__title" id="tooltip-title"></p>
+    </div>
+  </div>
+
+  
+  <p class="library-title">The Library</p>
+
+  <div class="writing-section">
+    <div class="writing-grid" id="writing-grid">
+      {% assign pieces = site.writing | sort: 'date' | reverse %}
+      {% for piece in pieces %}
+      <a class="writing-card"
+         href="{{ piece.url }}"
+         data-title="{{ piece.title | downcase }}"
+         data-excerpt="{{ piece.excerpt | strip_html | downcase | truncatewords: 30 }}"
+         data-collection="{{ piece.collection | default: 'none' }}">
+        <div class="writing-card__img" {% if piece.thumb %}style="background-image: url('{{ piece.thumb }}')"{% endif %}></div>
+        <div class="writing-card__info">
+          <p class="writing-card__date">{{ piece.date | date: "%B %Y" }}</p>
+          <h2 class="writing-card__title">{{ piece.title }}</h2>
+          {% if piece.subtitle %}<p class="writing-card__subtitle">{{ piece.subtitle }}</p>{% endif %}
+          {% if piece.excerpt %}<p class="writing-card__excerpt">{{ piece.excerpt | strip_html | truncatewords: 25 }}</p>{% endif %}
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+
 </div>
 
-<div class="writing-section">
-  <div class="writing-grid" id="writing-grid">
-    {% assign pieces = site.writing | sort: 'date' | reverse %}
-    {% for piece in pieces %}
-    <a class="writing-card"
-       href="{{ piece.url }}"
-       data-title="{{ piece.title | downcase }}"
-       data-excerpt="{{ piece.excerpt | strip_html | downcase | truncatewords: 30 }}"
-       data-collection="{{ piece.collection | default: 'none' }}">
-      <div class="writing-card__img" {% if piece.thumb %}style="background-image: url('{{ piece.thumb }}')"{% endif %}></div>
-      <div class="writing-card__info">
-        <p class="writing-card__date">{{ piece.date | date: "%B %Y" }}</p>
-        <h2 class="writing-card__title">{{ piece.title }}</h2>
-        {% if piece.subtitle %}<p class="writing-card__subtitle">{{ piece.subtitle }}</p>{% endif %}
-        {% if piece.excerpt %}<p class="writing-card__excerpt">{{ piece.excerpt | strip_html | truncatewords: 25 }}</p>{% endif %}
-      </div>
-    </a>
-    {% endfor %}
-  </div>
-</div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-function filterCards() {
-  var query = document.getElementById('search-input').value.toLowerCase();
-  document.querySelectorAll('.writing-card').forEach(function(card) {
-    var title = (card.getAttribute('data-title') || '').toLowerCase();
-    var excerpt = (card.getAttribute('data-excerpt') || '').toLowerCase();
-    var show = !query || title.indexOf(query) > -1 || excerpt.indexOf(query) > -1;
-    if (show) card.classList.remove('hidden');
-    else card.classList.add('hidden');
-  });
-}
+(function() {
+  var pins = [
+    { lat: 42.0, lon: 75.0, title: 'The Curse of Tash Rabat', url: '/writing/tash-rabat', img: '/assets/images/IMG_6869.JPG' },
+    { lat: 64.9, lon: -19.0, title: 'La Sauvage', url: '/writing/la-sauvage', img: '/assets/images/IMG_7798.JPG' },
+    { lat: 51.9, lon: 19.1, title: 'In the Winter Night', url: '/writing/winter-night', img: '/assets/images/IMG_8256.JPG' },
+    { lat: 37.0, lon: -111.0, title: 'Too Much Sky for a Child', url: '/writing/too-much-sky', img: '/assets/images/IMG_8166.JPG' },
+    { lat: 48.9, lon: 6.2, title: 'The Sunday Rites', url: '/writing/sunday-rites', img: '/assets/images/IMG_8257.JPG' },
+  ];
 
-function toggleSearch() {
-  var input = document.getElementById('search-input');
-  input.classList.toggle('open');
-  if (input.classList.contains('open')) input.focus();
-  else { input.value = ''; filterCards(); }
-}
+  function toVec3(lat, lon, r) {
+    var phi = (90 - lat) * Math.PI / 180;
+    var theta = (lon + 180) * Math.PI / 180;
+    return new THREE.Vector3(
+      -r * Math.sin(phi) * Math.cos(theta),
+      r * Math.cos(phi),
+      r * Math.sin(phi) * Math.sin(theta)
+    );
+  }
 
-function selectCollection(btn, collection) {
-  document.querySelectorAll('.collection-btn').forEach(function(b) { b.classList.remove('active'); });
-  btn.classList.add('active');
-  var query = document.getElementById('search-input').value.toLowerCase();
-  document.querySelectorAll('.writing-card').forEach(function(card) {
-    var title = (card.getAttribute('data-title') || '').toLowerCase();
-    var excerpt = (card.getAttribute('data-excerpt') || '').toLowerCase();
-    var col = card.getAttribute('data-collection') || 'none';
-    var matchSearch = !query || title.indexOf(query) > -1 || excerpt.indexOf(query) > -1;
-    var matchCol = collection === 'all' || col === collection;
-    if (matchSearch && matchCol) card.classList.remove('hidden');
-    else card.classList.add('hidden');
+  var section = document.getElementById('globe-section');
+  var canvas = document.getElementById('globe-canvas');
+  var W = section.offsetWidth;
+  var H = section.offsetHeight;
+
+  var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(W, H);
+
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(40, W / H, 0.1, 100);
+  camera.position.set(0, 0, 3.0);
+
+  var globe = new THREE.Mesh(
+    new THREE.SphereGeometry(1, 64, 64),
+    new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('/assets/images/earth-night.jpg') })
+  );
+  scene.add(globe);
+
+  // Smooth halo using canvas texture for gradient
+
+
+
+  var pinGroup = new THREE.Group();
+  scene.add(pinGroup);
+  var pinMeshes = [];
+
+  // Create cross marker texture
+  var starCanvas = document.createElement('canvas');
+  starCanvas.width = 64; starCanvas.height = 64;
+  var sCtx = starCanvas.getContext('2d');
+  sCtx.clearRect(0, 0, 64, 64);
+
+  // Soft glow
+  var grd = sCtx.createRadialGradient(32, 32, 0, 32, 32, 26);
+  grd.addColorStop(0, 'rgba(210,225,240,0.55)');
+  grd.addColorStop(0.4, 'rgba(210,225,240,0.2)');
+  grd.addColorStop(1, 'rgba(210,225,240,0)');
+  sCtx.fillStyle = grd;
+  sCtx.beginPath();
+  sCtx.arc(32, 32, 26, 0, Math.PI * 2);
+  sCtx.fill();
+
+  // X cross
+  sCtx.strokeStyle = 'rgba(255,255,255,0.95)';
+  sCtx.lineWidth = 3.5;
+  sCtx.lineCap = 'round';
+  sCtx.beginPath();
+  sCtx.moveTo(25, 25); sCtx.lineTo(39, 39);
+  sCtx.stroke();
+  sCtx.beginPath();
+  sCtx.moveTo(39, 25); sCtx.lineTo(25, 39);
+  sCtx.stroke();
+
+  var starTex = new THREE.CanvasTexture(starCanvas);
+
+  pins.forEach(function(pin) {
+    var pos = toVec3(pin.lat, pin.lon, 1.02);
+    var mat = new THREE.SpriteMaterial({
+      map: starTex,
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    });
+    var sprite = new THREE.Sprite(mat);
+    sprite.position.copy(pos);
+    sprite.scale.set(0.12, 0.12, 1);
+    sprite.userData = pin;
+    pinGroup.add(sprite);
+    pinMeshes.push(sprite);
   });
-}
+
+  var dragging = false, px = 0, py = 0, auto = true;
+  var hoveredPin = null;
+  var tooltip = document.getElementById('globe-tooltip');
+  var tImg = document.getElementById('tooltip-img');
+  var tTitle = document.getElementById('tooltip-title');
+  var raycaster = new THREE.Raycaster();
+  var mouse = new THREE.Vector2();
+
+  canvas.addEventListener('mousedown', function(e) { dragging = true; auto = false; px = e.clientX; py = e.clientY; });
+  window.addEventListener('mouseup', function() { dragging = false; setTimeout(function() { auto = true; }, 2000); });
+
+  canvas.addEventListener('mousemove', function(e) {
+    if (dragging) {
+      var dx = (e.clientX - px) * 0.005;
+      var dy = (e.clientY - py) * 0.005;
+      globe.rotation.y += dx; globe.rotation.x += dy;
+      pinGroup.rotation.y += dx; pinGroup.rotation.x += dy;
+      px = e.clientX; py = e.clientY;
+    }
+    var rect = canvas.getBoundingClientRect();
+    mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+    raycaster.setFromCamera(mouse, camera);
+    var hits = raycaster.intersectObjects(pinMeshes);
+    if (hits.length) {
+      hoveredPin = hits[0].object.userData;
+      tImg.src = hoveredPin.img;
+      tTitle.textContent = hoveredPin.title;
+      tooltip.style.left = (e.clientX - rect.left + 15) + 'px';
+      tooltip.style.top = (e.clientY - rect.top - 60) + 'px';
+      tooltip.style.opacity = '1';
+      canvas.style.cursor = 'pointer';
+    } else {
+      hoveredPin = null;
+      tooltip.style.opacity = '0';
+      canvas.style.cursor = dragging ? 'grabbing' : 'grab';
+    }
+  });
+
+  canvas.addEventListener('click', function() { if (hoveredPin) window.location.href = hoveredPin.url; });
+
+  canvas.addEventListener('touchstart', function(e) { px = e.touches[0].clientX; py = e.touches[0].clientY; auto = false; });
+  canvas.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+    var dx = (e.touches[0].clientX - px) * 0.005;
+    var dy = (e.touches[0].clientY - py) * 0.005;
+    globe.rotation.y += dx; globe.rotation.x += dy;
+    pinGroup.rotation.y += dx; pinGroup.rotation.x += dy;
+    px = e.touches[0].clientX; py = e.touches[0].clientY;
+  }, { passive: false });
+  canvas.addEventListener('touchend', function() { setTimeout(function() { auto = true; }, 2000); });
+
+  window.addEventListener('resize', function() {
+    W = section.offsetWidth; H = section.offsetHeight;
+    camera.aspect = W / H;
+    camera.updateProjectionMatrix();
+    renderer.setSize(W, H);
+  });
+
+  (function animate() {
+    requestAnimationFrame(animate);
+    if (auto) { globe.rotation.y += 0.0015; pinGroup.rotation.y += 0.0015; }
+    renderer.render(scene, camera);
+  })();
+
+  window.toggleBrowse = function() {
+    var inp = document.getElementById('search-input');
+    if (inp.style.width === '180px') {
+      inp.style.width = '0';
+      inp.style.opacity = '0';
+      inp.value = '';
+      window.filterCards();
+    } else {
+      inp.style.width = '180px';
+      inp.style.opacity = '1';
+      inp.focus();
+    }
+  };
+  window.filterCards = function() {
+    var q = '';
+    var inp = document.getElementById('search-input');
+    if (inp) q = inp.value.toLowerCase();
+    document.querySelectorAll('.writing-card').forEach(function(c) {
+      var t = (c.getAttribute('data-title') || '').toLowerCase();
+      var e = (c.getAttribute('data-excerpt') || '').toLowerCase();
+      (t.indexOf(q) > -1 || e.indexOf(q) > -1 || !q) ? c.classList.remove('hidden') : c.classList.add('hidden');
+    });
+  };
+})();
 </script>

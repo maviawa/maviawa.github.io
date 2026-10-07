@@ -7,29 +7,27 @@ home: true
   <div class="home-hero__bg" style="background-image: url('/assets/images/home.jpg')"></div>
   <div class="home-hero__overlay"></div>
 
-  <nav class="nav">
-    <a href="/" class="nav__home">Home</a>
-    <ul class="nav__links">
-      <li><a href="/words">Words</a></li>
-      <li><a href="/movies">Movies</a></li>
-      <li><a href="/albums">Albums</a></li>
+  <nav style="position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;padding:2.5rem 2.5rem 0;width:100%;">
+    <a href="/" style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.35em;color:rgba(255,255,255,0.9);text-decoration:none;margin-bottom:1rem;text-shadow:0 0 15px rgba(255,255,255,0.6),0 0 35px rgba(255,255,255,0.25);">TAAYK</a>
+    <ul style="list-style:none;display:flex;align-items:center;margin:0;padding:0;width:100%;justify-content:space-around;">
+      <li><a href="/words" style="font-family:'Merriweather',serif;font-size:0.68rem;font-weight:300;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);text-decoration:none;text-shadow:0 0 15px rgba(255,255,255,0.6),0 0 35px rgba(255,255,255,0.25);">Words</a></li>
+      <li><a href="/movies" style="font-family:'Merriweather',serif;font-size:0.68rem;font-weight:300;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);text-decoration:none;text-shadow:0 0 15px rgba(255,255,255,0.6),0 0 35px rgba(255,255,255,0.25);">Movies</a></li>
+      <li><a href="/albums" style="font-family:'Merriweather',serif;font-size:0.68rem;font-weight:300;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);text-decoration:none;text-shadow:0 0 15px rgba(255,255,255,0.6),0 0 35px rgba(255,255,255,0.25);">Albums</a></li>
+      <li><button id="new-btn" style="font-family:'Merriweather',serif;font-size:0.68rem;font-weight:300;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);background:none;border:none;cursor:pointer;padding:0;text-shadow:0 0 15px rgba(255,255,255,0.6),0 0 35px rgba(255,255,255,0.25);">Latest</button></li>
     </ul>
-    <button class="new-btn" id="new-btn">New</button>
   </nav>
 
   <div class="home-hero__bottom">
-    <div class="home-hero__brume">SMITTEN</div>
-    <p class="home-hero__line">unearthed remains of a life — the warmth, the gone, the dreamt and the road</p>
+    <p class="home-hero__line">Unearthed Remains of a Life &mdash;<br>the Warmth, the Gone,<br>the Dreamt and the Road</p>
     <p class="home-hero__by">by Margot Vially Walczak</p>
   </div>
 
   <a href="/contact" class="home-contact">contact</a>
 
-  <div class="new-drawer" id="new-drawer">
-    <button class="new-drawer__close" id="new-close">&#215;</button>
+  <div class="new-drawer open" id="new-drawer">
     <p class="new-drawer__header">New</p>
     {% assign latest = site.writing | sort: 'date' | reverse %}
-    {% for piece in latest limit:2 %}
+    {% for piece in latest limit:3 %}
     <a class="new-drawer__item" href="{{ piece.url }}">
       {% if piece.thumb %}
       <div class="new-drawer__thumb" style="background-image: url('{{ piece.thumb }}')"></div>
@@ -51,8 +49,6 @@ window.addEventListener('load', function() {
   var btn = document.getElementById('new-btn');
   var drawer = document.getElementById('new-drawer');
   var closeBtn = document.getElementById('new-close');
-
-  drawer.classList.remove('open');
 
   btn.onclick = function() {
     drawer.classList.toggle('open');
