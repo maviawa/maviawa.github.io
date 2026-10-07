@@ -2269,3 +2269,21 @@ body.home .home-contact:hover {
     gap: 8px !important;
   }
 }
+
+@media (max-width: 768px) {
+  body:not(.home) .nav {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 768px) {
+  body:not(.home) .nav {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+}
