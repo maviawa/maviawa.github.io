@@ -25,7 +25,6 @@ home: true
   <a href="/contact" class="home-contact">contact</a>
 
   <div class="new-drawer open" id="new-drawer">
-    <p class="new-drawer__header">New</p>
     {% assign latest = site.writing | sort: 'date' | reverse %}
     {% for piece in latest limit:3 %}
     <a class="new-drawer__item" href="{{ piece.url }}">
