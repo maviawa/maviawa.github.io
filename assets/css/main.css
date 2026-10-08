@@ -2305,3 +2305,7 @@ body.home .home-contact:hover {
     0 0 20px rgba(210,225,240,0.8),
     0 0 80px rgba(210,225,240,0.35) !important;
 }
+
+.words-browse {
+  padding: 2rem 2.5rem 0 !important;
+}
