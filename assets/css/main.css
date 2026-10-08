@@ -2309,3 +2309,10 @@ body.home .home-contact:hover {
 .words-browse {
   padding: 2rem 2.5rem 0 !important;
 }
+
+@media (max-width: 768px) {
+  .movies-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.8rem !important;
+  }
+}
