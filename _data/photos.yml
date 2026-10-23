@@ -1,36 +1,36 @@
-- image: /assets/images/photos/IMG_6869.jpg
-  caption: test caption one
-  tags: test
-- image: /assets/images/photos/IMG_8162.jpg
-  caption: test caption two
-  tags: test
-- image: /assets/images/photos/IMG_3971_2.jpg
-  caption: test caption three
-  tags: test
-- image: /assets/images/photos/IMG_4620_SnapseedCopy.jpg
-  caption: test caption four
-  tags: test
-- image: /assets/images/photos/IMG_4653_2.jpg
-  caption: test caption five
-  tags: test
-- image: /assets/images/photos/IMG_5824_SnapseedCopy.jpg
-  caption: test caption six
-  tags: test
-- image: /assets/images/photos/IMG_6031_SnapseedCopy.jpg
-  caption: test caption seven
-  tags: test
-- image: /assets/images/photos/IMG_7301.jpg
-  caption: test caption eight
-  tags: test
-- image: /assets/images/photos/IMG_7880.jpg
-  caption: test caption nine
-  tags: test
-- image: /assets/images/photos/IMG_7881.jpg
-  caption: test caption ten
-  tags: test
-- image: /assets/images/photos/IMG_7886.jpg
-  caption: test caption eleven
-  tags: test
-- image: /assets/images/photos/IMG_8634_2.jpg
-  caption: test caption twelve
-  tags: test
+- image: /assets/images/photos/feed/01_test_photo.jpg
+  caption: "test photo"
+  tags: "test photo"
+- image: /assets/images/photos/feed/02_test_photo.jpg
+  caption: "test photo"
+  tags: "test photo"
+- image: /assets/images/photos/feed/03_test_photo.jpg
+  caption: "test photo"
+  tags: "test photo"
+- image: /assets/images/photos/feed/04_test_photo.jpg
+  caption: "test photo"
+  tags: "test photo"
+- image: /assets/images/photos/feed/05_test_photo.jpg
+  caption: "test photo"
+  tags: "test photo"
+- image: /assets/images/photos/feed/06_test_photo.jpg
+  caption: "test photo"
+  tags: "test photo"
+- image: /assets/images/photos/feed/07_test_photo.jpg
+  caption: "test photo"
+  tags: "test photo"
+- image: /assets/images/photos/feed/08_test_photo.jpg
+  caption: "test photo"
+  tags: "test photo"
+- image: /assets/images/photos/feed/09_test_photo.jpg
+  caption: "test photo"
+  tags: "test photo"
+- image: /assets/images/photos/feed/10_test_photo.jpg
+  caption: "test photo"
+  tags: "test photo"
+- image: /assets/images/photos/feed/11_test_photo.jpg
+  caption: "test photo"
+  tags: "test photo"
+- image: /assets/images/photos/feed/12_test_photo.jpg
+  caption: "test photo"
+  tags: "test photo"

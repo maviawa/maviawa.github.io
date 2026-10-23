@@ -1,16 +1,16 @@
 ---
 layout: album
-title: Kazakhstan
-date: 2026-02-01
-cover: /assets/images/photos/IMG_7879.jpg
-keywords: kazakhstan steppe mountains tian shan horse winter
+title: "Kazakhstan"
+date: 2026-10-23
+cover: /assets/images/photos/kazakhstan/01.jpg
+keywords: "kazakhstan steppe tian shan horse winter "
 photos:
-  - /assets/images/photos/IMG_7879.jpg
-  - /assets/images/photos/IMG_7882.jpg
-  - /assets/images/photos/IMG_7887.jpg
-  - /assets/images/photos/IMG_7889.jpg
-  - /assets/images/photos/IMG_7890.jpg
-  - /assets/images/photos/IMG_7896.jpg
-  - /assets/images/photos/IMG_7899.jpg
-  - /assets/images/photos/IMG_7901.jpg
+  - /assets/images/photos/kazakhstan/01.jpg
+  - /assets/images/photos/kazakhstan/02.jpg
+  - /assets/images/photos/kazakhstan/03.jpg
+  - /assets/images/photos/kazakhstan/04.jpg
+  - /assets/images/photos/kazakhstan/05.jpg
+  - /assets/images/photos/kazakhstan/06.jpg
+  - /assets/images/photos/kazakhstan/07.jpg
+  - /assets/images/photos/kazakhstan/08.jpg
 ---

@@ -43,3 +43,10 @@ defaults:
       type: albums
     values:
       layout: album
+
+exclude:
+  - photos-inbox
+  - photos.sh
+  - Gemfile
+  - Gemfile.lock
+  - vendor
