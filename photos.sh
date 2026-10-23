@@ -105,7 +105,7 @@ if [ -d "$INBOX/feed" ]; then
       echo "  caption: \"$(yq "$w")\""
       echo "  tags: \"$(yq "$w")\""
     } >> _data/photos.yml
-  done < <(list_images "$INBOX/feed")
+  done < <(list_images "$INBOX/feed" | sort -t/ -k3,3nr)
   echo "feed: $(grep -c '^- image' _data/photos.yml) photos"
 fi
 
