@@ -1,200 +1,140 @@
 ---
 layout: default
-title: Album
+title: Photos
 ---
 
 <style>
-.feed-section {
-  min-height: 100vh;
-  background: #0b0b0d;
-  padding: calc(80px + 2rem) 1rem 6rem;
-}
+.ph-page { min-height: 100vh; background: #0b0b0d; padding-top: 80px; }
+.ph-top { display: flex; justify-content: flex-end; align-items: center; padding: 2rem 2.5rem 0; }
+.ph-browse { background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: .5rem; padding: 0;
+  font-family: 'Merriweather', serif; font-size: .68rem; font-weight: 300; letter-spacing: .22em; text-transform: uppercase; color: rgba(232,228,220,.5); }
+.ph-browse:hover { color: rgba(232,228,220,.9); }
+#ph-search { width: 0; opacity: 0; border: none; border-bottom: 1px solid rgba(232,228,220,.2); background: transparent; outline: none;
+  color: rgba(232,228,220,.8); font-family: 'Merriweather', serif; font-size: .68rem; letter-spacing: .1em; transition: width .4s, opacity .4s; margin-right: .8rem; }
 
-.feed-grid {
-  columns: 3;
-  column-gap: 8px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+.ph-albums { padding: 1.8rem 0 0 2.5rem; }
+.ph-albums__scroll { display: flex; gap: 1.1rem; overflow-x: auto; padding: 0 2.5rem 1rem 0; scrollbar-width: none; }
+.ph-albums__scroll::-webkit-scrollbar { display: none; }
+.ph-album { flex-shrink: 0; width: 180px; text-decoration: none; }
+.ph-album__cover { width: 100%; aspect-ratio: 4/3; border-radius: 10px; background-size: cover; background-position: center;
+  filter: brightness(.85); transition: box-shadow .4s, filter .4s; }
+.ph-album:hover .ph-album__cover { filter: brightness(1); box-shadow: 0 0 20px rgba(210,225,240,.25), 0 0 50px rgba(210,225,240,.08); }
+.ph-album__title { margin: .6rem 0 0; font-family: 'Libre Caslon Text', serif; font-size: .9rem; color: rgba(232,228,220,.88); }
+.ph-album__count { margin: .15rem 0 0; font-family: 'Merriweather', serif; font-size: .55rem; letter-spacing: .15em; text-transform: uppercase; color: rgba(232,228,220,.28); }
 
-.feed-item {
-  break-inside: avoid;
-  margin-bottom: 8px;
-  position: relative;
-  cursor: pointer;
-  overflow: hidden;
-  border-radius: 3px;
-  display: block;
-}
+.ph-feed { column-count: 3; column-gap: 10px; padding: 1.5rem 2.5rem 6rem; }
+.ph-item { break-inside: avoid; margin: 0 0 10px; border-radius: 12px; overflow: hidden; cursor: zoom-in; transition: box-shadow .4s; }
+.ph-item img { width: 100%; display: block; filter: brightness(.9); transition: filter .4s; }
+.ph-item:hover { box-shadow: 0 0 20px rgba(210,225,240,.22), 0 0 50px rgba(210,225,240,.08); }
+.ph-item:hover img { filter: brightness(1); }
 
-.feed-item img {
-  width: 100%;
-  display: block;
-  filter: brightness(0.88) saturate(0.85);
-  transition: filter 0.4s ease, transform 0.4s ease;
-}
+#ph-empty { display: none; text-align: center; padding: 4rem 0; font-family: 'Libre Caslon Text', serif; font-style: italic; color: rgba(232,228,220,.3); }
 
-.feed-item:hover img {
-  filter: brightness(1) saturate(1);
-  transform: scale(1.02);
-}
-
-.feed-item__album-label {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1.5rem 1rem 1rem;
-  background: linear-gradient(to top, rgba(11,11,13,0.9) 0%, transparent 100%);
-  z-index: 2;
-}
-
-.feed-item__album-title {
-  font-family: 'Libre Caslon Text', serif;
-  font-size: 1rem;
-  color: rgba(232,228,220,0.9);
-  font-weight: 400;
-}
-
-.feed-item__album-sub {
-  font-family: 'Merriweather', serif;
-  font-size: 0.58rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(232,228,220,0.4);
-  margin-top: 0.2rem;
-}
-
-.lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(11,11,13,0.97);
-  z-index: 1000;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  cursor: pointer;
-}
-
-.lightbox.open { display: flex; }
-
-.lightbox__img {
-  max-width: 90vw;
-  max-height: 80vh;
-  object-fit: contain;
-  border-radius: 2px;
-}
-
-.lightbox__caption {
-  margin-top: 1.2rem;
-  font-family: 'Libre Caslon Text', serif;
-  font-size: 0.9rem;
-  font-style: italic;
-  color: rgba(232,228,220,0.45);
-  text-align: center;
-  max-width: 500px;
-}
-
-.lightbox__close {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: none;
-  border: none;
-  color: rgba(232,228,220,0.4);
-  font-size: 1.8rem;
-  cursor: pointer;
-  transition: color 0.3s;
-  line-height: 1;
-}
-
-.lightbox__close:hover { color: rgba(232,228,220,0.9); }
+#ph-lightbox { display: none; position: fixed; inset: 0; z-index: 500; background: rgba(5,5,7,.94); align-items: center; justify-content: center; flex-direction: column; cursor: zoom-out; }
+#ph-lightbox img { max-width: 92vw; max-height: 82vh; border-radius: 6px; }
+#ph-lightbox p { margin-top: 1rem; font-family: 'Libre Caslon Text', serif; font-style: italic; font-size: .9rem; color: rgba(232,228,220,.6); }
 
 @media (max-width: 768px) {
-  .feed-grid { columns: 2; column-gap: 6px; }
-  .feed-item { margin-bottom: 6px; }
+  .ph-top { padding: 1.5rem 1.2rem 0; }
+  .ph-albums { padding-left: 1.2rem; }
+  .ph-album { width: 150px; }
+  .ph-feed { column-count: 2; column-gap: 8px; padding: 1.2rem 1.2rem 5rem; }
+  .ph-item { margin-bottom: 8px; border-radius: 10px; }
 }
 </style>
 
-<div class="feed-section">
-  <div class="album-search-wrap">
-    <button class="search-icon" id="album-search-toggle" onclick="toggleAlbumSearch()">
+{% assign ph_albums = site.albums | sort: 'date' | reverse %}
+
+<div class="ph-page">
+
+  <div class="ph-top">
+    <input id="ph-search" type="text" placeholder="ecuador, halloween..." oninput="phFilter()">
+    <button class="ph-browse" onclick="phToggle()">
       <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
-        <circle cx="6" cy="6" r="4.5" stroke="rgba(232,228,220,0.45)" stroke-width="1.1"/>
-        <line x1="9.5" y1="9.5" x2="13.5" y2="13.5" stroke="rgba(232,228,220,0.45)" stroke-width="1.1" stroke-linecap="round"/>
+        <circle cx="6" cy="6" r="4.5" stroke="rgba(232,228,220,0.5)" stroke-width="1.1"/>
+        <line x1="9.5" y1="9.5" x2="13.5" y2="13.5" stroke="rgba(232,228,220,0.5)" stroke-width="1.1" stroke-linecap="round"/>
       </svg>
+      Browse
     </button>
-    <input class="search-input" id="album-search-input" type="text" placeholder="search..." oninput="filterAlbum()">
   </div>
 
-  <div class="feed-grid">
-
-    {% for photo in site.data.photos %}
-    <div class="feed-item" onclick="openPhoto('{{ photo.image }}', '{{ photo.caption }}')" data-title="{{ photo.image }}" data-caption="{{ photo.caption }}">
-      <img src="{{ photo.image }}" alt="{{ photo.caption }}">
+  <div class="ph-albums" id="ph-albums">
+    <div class="ph-albums__scroll">
+      {% for a in ph_albums %}
+      <a class="ph-album" href="{{ a.url }}" data-search="{{ a.title | append: ' ' | append: a.keywords | downcase | escape }}">
+        <div class="ph-album__cover" style="background-image: url('{{ a.cover }}')"></div>
+        <p class="ph-album__title">{{ a.title }}</p>
+        <p class="ph-album__count">{{ a.photos | size }} photos</p>
+      </a>
+      {% endfor %}
     </div>
-    {% endfor %}
-
-    {% assign albums = site.albums | sort: 'date' | reverse %}
-    {% for album in albums %}
-    {% if album.photos %}
-    <a class="feed-item" href="{{ album.url }}" data-title="{{ album.title | downcase }}" data-caption="{{ album.location | downcase }}">
-      {% if album.cover %}
-      <img src="{{ album.cover }}" alt="{{ album.title }}">
-      {% endif %}
-      <div class="feed-item__album-label">
-        <p class="feed-item__album-title">{{ album.title }}</p>
-        {% if album.location %}<p class="feed-item__album-sub">{{ album.location }}</p>{% endif %}
-      </div>
-    </a>
-    {% endif %}
-    {% endfor %}
-
   </div>
+
+  <div class="ph-feed" id="ph-feed">
+    {% for p in site.data.photos %}
+    <figure class="ph-item" data-search="{{ p.caption | append: ' ' | append: p.tags | downcase | escape }}" data-src="{{ p.image }}" data-caption="{{ p.caption | escape }}">
+      <img src="{{ p.image }}" loading="lazy" alt="{{ p.caption | escape }}">
+    </figure>
+    {% endfor %}
+    {% for a in ph_albums %}{% for ph in a.photos %}
+    <figure class="ph-item ph-from-album" style="display:none" data-search="{{ a.title | append: ' ' | append: a.keywords | downcase | escape }}" data-src="{{ ph }}" data-caption="{{ a.title | escape }}">
+      <img src="{{ ph }}" loading="lazy" alt="{{ a.title | escape }}">
+    </figure>
+    {% endfor %}{% endfor %}
+  </div>
+
+  <p id="ph-empty">nothing found</p>
 </div>
 
-<script>
-function toggleAlbumSearch() {
-  var input = document.getElementById('album-search-input');
-  input.classList.toggle('open');
-  if (input.classList.contains('open')) input.focus();
-  else { input.value = ''; filterAlbum(); }
-}
+<div id="ph-lightbox"><img id="ph-lb-img" src="" alt=""><p id="ph-lb-cap"></p></div>
 
-function filterAlbum() {
-  var query = document.getElementById('album-search-input').value.toLowerCase();
-  document.querySelectorAll('.feed-item').forEach(function(item) {
-    var title = (item.getAttribute('data-title') || '').toLowerCase();
-    var caption = (item.getAttribute('data-caption') || '').toLowerCase();
-    var show = !query || title.indexOf(query) > -1 || caption.indexOf(query) > -1;
-    if (show) item.classList.remove('hidden');
-    else item.classList.add('hidden');
+<script>
+(function () {
+  var input = document.getElementById('ph-search');
+  var albums = Array.prototype.slice.call(document.querySelectorAll('.ph-album'));
+  var items = Array.prototype.slice.call(document.querySelectorAll('.ph-item'));
+  var row = document.getElementById('ph-albums');
+  var empty = document.getElementById('ph-empty');
+
+  window.phToggle = function () {
+    if (input.style.width === '200px') {
+      input.style.width = '0'; input.style.opacity = '0'; input.value = ''; phFilter();
+    } else {
+      input.style.width = '200px'; input.style.opacity = '1'; input.focus();
+    }
+  };
+
+  window.phFilter = function () {
+    var words = input.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
+    function match(el) {
+      var s = el.getAttribute('data-search') || '';
+      return words.every(function (w) { return s.indexOf(w) > -1; });
+    }
+    var a = 0, f = 0;
+    albums.forEach(function (el) {
+      var show = !words.length || match(el);
+      el.style.display = show ? '' : 'none';
+      if (show) a++;
+    });
+    items.forEach(function (el) {
+      var fromAlbum = el.classList.contains('ph-from-album');
+      var show = words.length ? match(el) : !fromAlbum;
+      el.style.display = show ? '' : 'none';
+      if (show) f++;
+    });
+    row.style.display = a ? '' : 'none';
+    empty.style.display = (words.length && !a && !f) ? 'block' : 'none';
+  };
+
+  var lb = document.getElementById('ph-lightbox');
+  items.forEach(function (el) {
+    el.addEventListener('click', function () {
+      document.getElementById('ph-lb-img').src = el.getAttribute('data-src');
+      document.getElementById('ph-lb-cap').textContent = el.getAttribute('data-caption') || '';
+      lb.style.display = 'flex';
+    });
   });
-}
-</script>
-
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <button class="lightbox__close" onclick="closeLightbox()">&#215;</button>
-  <img class="lightbox__img" id="lightbox-img" src="" alt="">
-  <p class="lightbox__caption" id="lightbox-caption"></p>
-</div>
-
-<script>
-function openPhoto(src, caption) {
-  document.getElementById('lightbox-img').src = src;
-  document.getElementById('lightbox-caption').textContent = caption || '';
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeLightbox();
-});
+  lb.addEventListener('click', function () { lb.style.display = 'none'; });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') lb.style.display = 'none'; });
+})();
 </script>
