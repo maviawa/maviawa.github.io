@@ -118,18 +118,6 @@ title: Words
 
 <div class="words-page">
 
-  <div class="words-browse">
-    <button class="browse-btn" onclick="toggleBrowse()">
-      <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
-        <circle cx="6" cy="6" r="4.5" stroke="rgba(232,228,220,0.5)" stroke-width="1.1"/>
-        <line x1="9.5" y1="9.5" x2="13.5" y2="13.5" stroke="rgba(232,228,220,0.5)" stroke-width="1.1" stroke-linecap="round"/>
-      </svg>
-      Browse
-    </button>
-    <input id="search-input" type="text" placeholder="search..." oninput="filterCards()"
-      style="width:0;opacity:0;border:none;border-bottom:1px solid rgba(232,228,220,0.2);background:transparent;color:rgba(232,228,220,0.8);outline:none;font-family:'Merriweather',serif;font-size:0.68rem;letter-spacing:0.1em;transition:width 0.4s,opacity 0.4s;margin-left:0.8rem;">
-  </div>
-
   <div class="globe-section" id="globe-section">
     <div class="globe-glow"></div>
     <canvas id="globe-canvas" style="position:relative;z-index:1;"></canvas>
@@ -141,6 +129,18 @@ title: Words
 
   
   <p class="library-title">The Library</p>
+
+  <div class="words-browse">
+    <button class="browse-btn" onclick="toggleBrowse()">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+        <circle cx="6" cy="6" r="4.5" stroke="rgba(232,228,220,0.5)" stroke-width="1.1"/>
+        <line x1="9.5" y1="9.5" x2="13.5" y2="13.5" stroke="rgba(232,228,220,0.5)" stroke-width="1.1" stroke-linecap="round"/>
+      </svg>
+      Browse
+    </button>
+    <input id="search-input" type="text" placeholder="search..." oninput="filterCards()"
+      style="width:0;opacity:0;border:none;border-bottom:1px solid rgba(232,228,220,0.2);background:transparent;color:rgba(232,228,220,0.8);outline:none;font-family:'Merriweather',serif;font-size:0.68rem;letter-spacing:0.1em;transition:width 0.4s,opacity 0.4s;margin-left:0.8rem;">
+  </div>
 
   <div class="writing-section">
     <div class="writing-grid" id="writing-grid">
