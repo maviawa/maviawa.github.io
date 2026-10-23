@@ -1,36 +1,27 @@
-- image: /assets/images/photos/feed/01_test_photo.jpg
-  caption: "test photo"
-  tags: "test photo"
-- image: /assets/images/photos/feed/02_test_photo.jpg
-  caption: "test photo"
-  tags: "test photo"
-- image: /assets/images/photos/feed/03_test_photo.jpg
-  caption: "test photo"
-  tags: "test photo"
-- image: /assets/images/photos/feed/04_test_photo.jpg
-  caption: "test photo"
-  tags: "test photo"
-- image: /assets/images/photos/feed/05_test_photo.jpg
-  caption: "test photo"
-  tags: "test photo"
-- image: /assets/images/photos/feed/06_test_photo.jpg
-  caption: "test photo"
-  tags: "test photo"
-- image: /assets/images/photos/feed/07_test_photo.jpg
-  caption: "test photo"
-  tags: "test photo"
-- image: /assets/images/photos/feed/08_test_photo.jpg
-  caption: "test photo"
-  tags: "test photo"
-- image: /assets/images/photos/feed/09_test_photo.jpg
-  caption: "test photo"
-  tags: "test photo"
-- image: /assets/images/photos/feed/10_test_photo.jpg
-  caption: "test photo"
-  tags: "test photo"
-- image: /assets/images/photos/feed/11_test_photo.jpg
-  caption: "test photo"
-  tags: "test photo"
-- image: /assets/images/photos/feed/12_test_photo.jpg
-  caption: "test photo"
-  tags: "test photo"
+- image: /assets/images/photos/feed/001.jpg
+  caption: ""
+  tags: ""
+- image: /assets/images/photos/feed/002.jpg
+  caption: ""
+  tags: ""
+- image: /assets/images/photos/feed/003.jpg
+  caption: ""
+  tags: ""
+- image: /assets/images/photos/feed/004.jpg
+  caption: ""
+  tags: ""
+- image: /assets/images/photos/feed/005.jpg
+  caption: ""
+  tags: ""
+- image: /assets/images/photos/feed/006.jpg
+  caption: ""
+  tags: ""
+- image: /assets/images/photos/feed/007.jpg
+  caption: ""
+  tags: ""
+- image: /assets/images/photos/feed/008.jpg
+  caption: ""
+  tags: ""
+- image: /assets/images/photos/feed/009.jpg
+  caption: ""
+  tags: ""
