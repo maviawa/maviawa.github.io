@@ -4,7 +4,7 @@ title: Photos
 ---
 
 <style>
-.ph-page { min-height: 100vh; background: #0b0b0d; padding-top: 0; }
+.ph-page { min-height: 100vh; background: #0b0b0d; padding-top: 80px; }
 .ph-top { display: flex; justify-content: flex-end; align-items: center; padding: 2rem 2.5rem 0; }
 .ph-browse { background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: .5rem; padding: 0;
   font-family: 'Merriweather', serif; font-size: .68rem; font-weight: 300; letter-spacing: .22em; text-transform: uppercase; color: rgba(232,228,220,.5); }
@@ -22,7 +22,7 @@ title: Photos
 .ph-album__title { margin: .6rem 0 0; font-family: 'Libre Caslon Text', serif; font-size: .9rem; color: rgba(232,228,220,.88); }
 .ph-album__count { margin: .15rem 0 0; font-family: 'Merriweather', serif; font-size: .55rem; letter-spacing: .15em; text-transform: uppercase; color: rgba(232,228,220,.28); }
 
-.ph-feed { column-count: 3; column-gap: 10px; padding: 1.5rem 2.5rem 6rem; }
+.ph-feed { column-count: 4; column-gap: 10px; padding: 1.5rem 2.5rem 6rem; }
 .ph-item { break-inside: avoid; margin: 0 0 10px; border-radius: 12px; overflow: hidden; cursor: zoom-in; transition: box-shadow .4s; }
 .ph-item img { width: 100%; display: block; filter: brightness(.9); transition: filter .4s; }
 .ph-item:hover { box-shadow: 0 0 20px rgba(210,225,240,.22), 0 0 50px rgba(210,225,240,.08); }
@@ -35,7 +35,7 @@ title: Photos
 #ph-lightbox p { margin-top: 1rem; font-family: 'Libre Caslon Text', serif; font-style: italic; font-size: .9rem; color: rgba(232,228,220,.6); }
 
 @media (max-width: 768px) {
-  .ph-top { padding: 1.5rem 1.2rem 0; }
+  .ph-page { padding-top: 0; } .ph-top { padding: 1.5rem 1.2rem 0; }
   .ph-albums { padding-left: 1.2rem; }
   .ph-album { width: 150px; }
   .ph-feed { column-count: 2; column-gap: 8px; padding: 1.2rem 1.2rem 5rem; }
