@@ -2316,3 +2316,4 @@ body.home .home-contact:hover {
     gap: 0.8rem !important;
   }
 }
+@media (max-width: 768px) { .piece__hero { height: 32vh !important; } }
