@@ -41,7 +41,7 @@ title: Photos
   .ph-feed { column-count: 2; column-gap: 8px; padding: 1.2rem 1.2rem 5rem; }
   .ph-item { margin-bottom: 8px; border-radius: 10px; }
 }
-</style>
+.ph-item img,#ph-lightbox img{-webkit-user-drag:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;pointer-events:none;}.ph-item img,#ph-lightbox img{-webkit-user-drag:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;pointer-events:none;}</style>
 
 {% assign ph_albums = site.albums | sort: 'date' | reverse %}
 
@@ -138,3 +138,4 @@ title: Photos
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') lb.style.display = 'none'; });
 })();
 </script>
+<script>(function(){var s=".ph-item,#ph-lightbox";document.addEventListener("contextmenu",function(e){if(e.target.closest&&e.target.closest(s))e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target.tagName==="IMG")e.preventDefault();});})();</script>

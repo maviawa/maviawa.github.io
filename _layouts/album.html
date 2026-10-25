@@ -121,7 +121,7 @@ layout: default
 @media (max-width: 480px) {
   .album-page__grid { columns: 1; }
 }
-.album-page__header{margin-bottom:2rem !important;}.album-page__grid{columns:4 !important;column-gap:10px !important;max-width:1300px !important;}.album-photo{margin-bottom:10px !important;border-radius:10px !important;}@media (max-width:768px){.album-page{padding:1.2rem 1.2rem 5rem !important;}.album-page__grid{columns:2 !important;column-gap:8px !important;}.album-photo{margin-bottom:8px !important;border-radius:8px !important;}}</style>
+.album-page__header{margin-bottom:2rem !important;}.album-page__grid{columns:4 !important;column-gap:10px !important;max-width:1300px !important;}.album-photo{margin-bottom:10px !important;border-radius:10px !important;}@media (max-width:768px){.album-page{padding:1.2rem 1.2rem 5rem !important;}.album-page__grid{columns:2 !important;column-gap:8px !important;}.album-photo{margin-bottom:8px !important;border-radius:8px !important;}}.album-photo img,.lightbox__img{-webkit-user-drag:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;pointer-events:none;}</style>
 
 <script>
 function openPhoto(src) {
@@ -139,3 +139,4 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeLightbox();
 });
 </script>
+<script>(function(){var s=".album-photo,.lightbox";document.addEventListener("contextmenu",function(e){if(e.target.closest&&e.target.closest(s))e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target.tagName==="IMG")e.preventDefault();});})();</script>

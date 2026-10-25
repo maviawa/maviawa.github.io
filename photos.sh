@@ -19,15 +19,16 @@ INBOX="photos-inbox"
 OUT="assets/images/photos"
 SIZE=1600
 QUALITY=75
+OWNER="Margot Vially Walczak"
 
 if [ ! -d "$INBOX" ]; then
   echo "No $INBOX folder found. Create it and add folders (one per album, plus 'feed')."
   exit 1
 fi
 
-resize() { # $1 source  $2 destination
+resize() { # $1 source  $2 destination  (resize + write copyright details into the file)
   if command -v sips >/dev/null 2>&1; then
-    sips -Z $SIZE -s format jpeg -s formatOptions $QUALITY "$1" --out "$2" >/dev/null
+    sips -Z $SIZE -s format jpeg -s formatOptions $QUALITY "$1" --out "$2" >/dev/null; sips -s copyright "Copyright 2026 Margot Vially Walczak. All rights reserved." -s artist "Margot Vially Walczak" "$2" >/dev/null 2>&1 || true
   else
     convert "$1" -auto-orient -resize ${SIZE}x${SIZE}\> -quality $QUALITY "$2"
   fi
@@ -50,6 +51,9 @@ list_images() { # sorted image files in dir $1
 }
 
 mkdir -p _albums _data "$OUT"
+# rebuild everything once when the photo settings change
+rm -f "$OUT/.wm-v1"
+if [ ! -f "$OUT/.clean-v1" ]; then find "$OUT" -type f -name '*.jpg' -delete 2>/dev/null || true; touch "$OUT/.clean-v1"; fi
 rm -f _albums/*.md 2>/dev/null || true
 : > _data/photos.yml
 keep="$(mktemp)"

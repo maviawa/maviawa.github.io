@@ -47,6 +47,7 @@ defaults:
 exclude:
   - photos-inbox
   - photos.sh
+  - tools
   - Gemfile
   - Gemfile.lock
   - vendor
