@@ -2317,3 +2317,6 @@ body.home .home-contact:hover {
   }
 }
 @media (max-width: 768px) { .piece__hero { height: 32vh !important; } }
+@media (min-width: 769px) { .piece { padding-top: 105px !important; } .piece__hero { height: 50vh !important; -webkit-mask-image: linear-gradient(to bottom, #000 75%, transparent); mask-image: linear-gradient(to bottom, #000 75%, transparent); } }
+@media (min-width: 769px) { .piece { padding-top: 145px !important; } .piece__hero { background-position: center 30% !important; } }
+@media (min-width: 769px) { .piece__hero { height: 56vh !important; background-position: center 42% !important; -webkit-mask-image: linear-gradient(to bottom, #000 85%, transparent) !important; mask-image: linear-gradient(to bottom, #000 85%, transparent) !important; } }
