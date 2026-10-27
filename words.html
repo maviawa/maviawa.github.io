@@ -144,7 +144,7 @@ title: Words
 
   <div class="writing-section">
     <div class="writing-grid" id="writing-grid">
-      {% assign pieces = site.writing | sort: 'date' | reverse %}
+      {% assign pinned = site.writing | where: "pinned", true %}{% assign rest = site.writing | where_exp: "p", "p.pinned != true" | sort: "date" | reverse %}{% assign pieces = pinned | concat: rest %}
       {% for piece in pieces %}
       <a class="writing-card"
          href="{{ piece.url }}"
@@ -170,10 +170,7 @@ title: Words
 (function() {
   var pins = [
     { lat: 42.0, lon: 75.0, title: 'The Curse of Tash Rabat', url: '/writing/tash-rabat', img: '/assets/images/IMG_6869.JPG' },
-    { lat: 64.9, lon: -19.0, title: 'La Sauvage', url: '/writing/la-sauvage', img: '/assets/images/IMG_7798.JPG' },
-    { lat: 51.9, lon: 19.1, title: 'In the Winter Night', url: '/writing/winter-night', img: '/assets/images/IMG_8256.JPG' },
     { lat: 37.0, lon: -111.0, title: 'Too Much Sky for a Child', url: '/writing/too-much-sky', img: '/assets/images/IMG_8166.JPG' },
-    { lat: 48.9, lon: 6.2, title: 'The Sunday Rites', url: '/writing/sunday-rites', img: '/assets/images/IMG_8257.JPG' },
   ];
 
   function toVec3(lat, lon, r) {
