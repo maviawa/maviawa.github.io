@@ -12,7 +12,7 @@ Somewhere across the ocean, children my age were moving from room to room like p
 
 We drove west into open country, the land stripped bare by winter. What remained was bone and clarity.
 
-![](/assets/images/IMG_8163.JPG)
+![](/assets/images/IMG_8162.JPG)
 
 Fences swallowed by drift. Telegraph poles thinning into nothing. Cattle standing against the white like punctuation, still as stones and unreadable. And above it all, the sky yawned like a cold eye.
 
@@ -22,23 +22,19 @@ My mother did all the driving. At home we didn’t even own a car. Out here she 
 
 We lived from motel to motel. Long corridors, thin walls, rooms stuck somewhere between 1955 and 1975, a little soulless, a little creepy. The carpets had seen better decades. Big American cars idled under fluorescent light, and all night the ice machines chewed away. In the mornings we ate oatmeal out of paper bowls, packed the car and left. Diesel. Sagebrush. Snowmelt. Cold air pulled through a half-open window.
 
-![](/assets/images/IMG_8162.JPG)
-
 At deserted visitor centres, lonesome rangers shuffled maps behind counters. Stuffed bighorn sheep and elk and mountain lions stared out with glass eyes, dead and labelled. Outside, the parking lots were empty, and the real thing was waiting beyond them.
 
 We walked till the cold got into our boots. We climbed whatever could be climbed, balanced along fallen trees, crossed bridges that were barely more than planks. The ground was frozen in places and loose in others, and there was always a path going round a bend, and we always followed it. We came back with numb fingers and pockets full of things that would mean nothing to anyone else.
 
 Once, my brother lost a shoe in a huge pile of snow. I laughed through the whole search. He stood there in one wet sock and didn’t laugh at all. All that snow, all that country, and the three of us on our knees digging for one shoe.
 
-We came to the edges of canyons, walked under trees older than anything I could imagine, beside rock that looked carved by hand. Just the three of us, the cold, and the country running off in every direction like it had never heard of an ending.
-
-Standing there, wind pushing at my ribs, I felt small. But small is not the same as less. I could see my breath, feel my pulse knocking in my throat. And for a while I belonged more to that vastness than to any classroom across any ocean.
+We walked under trees that had outlived most of what we learned in history lessons, stood beside rock that looked carved by hand, came to the edges of canyons so deep the river at the bottom made no sound. Standing there, wind pushing at my ribs, I felt small. But small is not the same as less. I could see my breath, feel my pulse knocking in my throat. And for a while I belonged more to that vastness than to any classroom across any ocean.
 
 The land did not comfort me. It didn’t know I was there. And somehow that was the steadiest thing I had ever felt.
 
-![](/assets/images/IMG_8166.JPG)
-
 In Monument Valley, a Diné man led us out on horseback, his two dogs trotting at the horses’ heels. He called the valley Tsé Biiʼ Ndzisgaii. A textbook would call the shapes rising around us buttes and mesas. He spoke of ancient spirits and deities. I don’t remember everything he told us. But I remember feeling that there was more than one way to understand the world.
+
+![](/assets/images/IMG_8166.JPG)
 
 Time loosened its grip. The days ran into one another the way creeks run into rivers, without asking. There was always somewhere to go and nowhere we had to be. The land changed outside the window. For once the future could wait, and it did, and nothing bad came of it.
 
@@ -57,3 +53,5 @@ That ought to be a cold thing to know. Yet there is a generosity in it so plain 
 Only people build fences. And I had seen what the snow does to them.
 
 There is a hard freedom in knowing that.
+
+![](/assets/images/IMG_8163.JPG)
