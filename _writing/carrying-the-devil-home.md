@@ -29,7 +29,7 @@ And in Kazakhstan, I rode for three days on a horse named Typhoon, who ignored m
 
 My mother used to scribble her favourite lines on our kitchen walls. One of them: *Le monde est un livre, et ceux qui ne voyagent pas n’en lisent qu’une page* — the world is a book, and those who do not travel read only one page. I believed it for a long time. I still half do. But a life doesn’t become interesting only when you leave home. Some of the pages I would miss most were the ones I read over and over, in the same handful of places, while I was too young to know they were finite.
 
-In Poland, every summer, my grandfather took my siblings and me to his sister’s house. Back then, everyone was still alive. We sat beneath the oak tree in her yard, drinking tea, eating cake, playing ball, gossiping, laughing at things that probably weren’t very funny. The adults talked. The afternoon went on. Nothing happened that would have made a good story. I would give a great deal to sit there again.
+In Poland, every summer, my grandfather took my siblings and me to his sister’s house. Back then, everyone was still alive. We sat beneath the walnut tree in her yard, drinking black tea, eating cake, playing ball, gossiping, laughing at things that probably weren’t very funny. The adults talked. The afternoon went on. Nothing happened that would have made a good story. I would give a great deal to sit there again.
 
 Last winter, my brother and I started taking night walks. We’d wander through the empty village and out towards the fields, talking about our dreams, remembering things, setting the world to rights. Two people with plenty of opinions and, between us, presumably enough solutions for several continents.
 
@@ -60,6 +60,6 @@ The real seeps into the imagined; the imagined changes what we notice in the rea
 
 Maybe that’s what all these years have left me with: not a collection of places, not a clean story about who I am, but a life full of overlapping worlds. The people I came from. The people I met briefly and never saw again. The ones I only ever met in stories.
 
-And yet, none of it belongs entirely to the past. Somewhere, all of it is still happening. Smoke is rising above the village roofs. Someone is pouring tea beneath the oak tree. In a field I chose long ago, a calf is still being carried home. The waterfall keeps falling.
+And yet, none of it belongs entirely to the past. Somewhere, all of it is still happening. Smoke is rising above the village roofs. Someone is pouring tea beneath the walnut tree. In a field I chose long ago, a calf is still being carried home. The waterfall keeps falling.
 
 And what should I do with it all — the warmth, the gone, the dreamt and the road?
