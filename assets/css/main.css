@@ -2320,3 +2320,17 @@ body.home .home-contact:hover {
 @media (min-width: 769px) { .piece { padding-top: 105px !important; } .piece__hero { height: 50vh !important; -webkit-mask-image: linear-gradient(to bottom, #000 75%, transparent); mask-image: linear-gradient(to bottom, #000 75%, transparent); } }
 @media (min-width: 769px) { .piece { padding-top: 145px !important; } .piece__hero { background-position: center 30% !important; } }
 @media (min-width: 769px) { .piece__hero { height: 56vh !important; background-position: center 42% !important; -webkit-mask-image: linear-gradient(to bottom, #000 85%, transparent) !important; mask-image: linear-gradient(to bottom, #000 85%, transparent) !important; } }
+
+/* Latest cards: larger on big screens */
+@media (min-width: 1700px) {
+  .new-drawer { width: 470px !important; padding: 0 2.2rem !important; gap: 1.4rem !important; }
+  .new-drawer__item { gap: 1.6rem !important; padding: 1.1rem !important; border-radius: 10px !important; }
+  .new-drawer__thumb { width: 160px !important; height: 108px !important; }
+  .new-drawer__label { font-size: 0.7rem !important; margin-bottom: 0.55rem !important; }
+  .new-drawer__title { font-size: 1.45rem !important; }
+}
+@media (min-width: 2400px) {
+  .new-drawer { width: 600px !important; }
+  .new-drawer__thumb { width: 200px !important; height: 135px !important; }
+  .new-drawer__title { font-size: 1.8rem !important; }
+}
