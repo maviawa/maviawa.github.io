@@ -6,7 +6,7 @@ thumb: /assets/images/IMG_8166.JPG
 excerpt: I was thirteen and road-tripping across the American West, absent from school and all its silent choreography
 ---
 
-I was thirteen and road-tripping across the American West, absent from school and all its silent choreography — its invisible lines, its measuring of minutes, its insistence that life be folded into something neat and quantifiable. Other mothers signed permission slips. Mine took us out for four months and halfway around the world. America, New Zealand, Australia, Japan. We missed lessons. We learned the geography of departure — airports before dawn, roads we couldn’t read, the strange intimacy of being nowhere near home. I think she knew the world had things to teach us that school never would.
+I was thirteen and road-tripping across the American West, absent from school and all its silent choreography — its invisible lines, its measuring of minutes, its insistence that life be folded into something neat and quantifiable. Other mothers signed permission slips. Mine took us out for four months and halfway around the world. America, New Zealand, Australia, Japan. Instead of classrooms, we had half-lit airports, bags at our feet, and the strange intimacy of being nowhere near home.
 
 Somewhere across the ocean, children my age were moving from room to room like pieces on a board, told when to speak, how to sit, what to imagine. School never crushed me. It just made me smaller, a little at a time, and taught me to call that being realistic. Dreams were meant to be proportionate to probability. Keep at that long enough and you end up with a life lived adjacent to itself.
 
