@@ -2334,3 +2334,12 @@ body.home .home-contact:hover {
   .new-drawer__thumb { width: 200px !important; height: 135px !important; }
   .new-drawer__title { font-size: 1.8rem !important; }
 }
+
+/* Latest cards: fully hidden when closed on big screens */
+@media (min-width: 1700px) {
+  .new-drawer:not(.open) { right: -800px !important; }
+  .new-drawer.open { right: 0 !important; }
+}
+@media (min-width: 2400px) {
+  .new-drawer:not(.open) { right: -1000px !important; }
+}
