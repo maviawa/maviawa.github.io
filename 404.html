@@ -1,0 +1,63 @@
+---
+layout: default
+title: Wrong turn
+permalink: /404.html
+sitemap: false
+---
+
+<style>
+.lost-page {
+  min-height: 100vh;
+  padding: 90px 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.lost-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.6rem, 9vw, 6rem);
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  margin: 0 0 1.4rem;
+  color: rgba(232,228,220,0.95);
+  text-shadow: 0 0 14px rgba(210,225,240,0.28), 0 0 34px rgba(210,225,240,0.12);
+}
+.lost-line {
+  font-family: 'Libre Caslon Text', serif;
+  font-style: italic;
+  font-size: clamp(1rem, 2.4vw, 1.35rem);
+  line-height: 1.6;
+  color: rgba(232,228,220,0.75);
+  margin: 0;
+}
+.lost-line a {
+  color: rgba(232,228,220,0.95);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(210,225,240,0.4);
+  padding-bottom: 1px;
+  transition: border-color 0.3s, text-shadow 0.3s;
+}
+.lost-line a:hover {
+  border-color: rgba(210,225,240,0.9);
+  text-shadow: 0 0 12px rgba(210,225,240,0.4);
+}
+@media (max-width: 768px) {
+  .lost-page { min-height: calc(100vh - 80px); padding-top: 0; padding-bottom: 16vh; }
+  .lost-title { letter-spacing: 0.2em; }
+}
+.lost-title { font-size: clamp(1.5rem, 3.2vw, 2.4rem); letter-spacing: 0.4em; margin-bottom: 1rem; text-shadow: 0 0 10px rgba(210,225,240,0.45), 0 0 26px rgba(210,225,240,0.22), 0 0 50px rgba(210,225,240,0.10); }
+.lost-line { font-size: clamp(0.8rem, 1.4vw, 1rem); text-shadow: 0 0 10px rgba(210,225,240,0.3), 0 0 24px rgba(210,225,240,0.12); }
+@media (max-width: 768px) { .lost-title { letter-spacing: 0.28em; } }
+.lost-title { line-height: 1; margin-bottom: 0.55rem; padding-left: 0.4em; }
+.lost-line { font-size: clamp(1rem, 1.8vw, 1.3rem); }
+@media (min-width: 769px) { .lost-page { padding: 0 1.5rem 4vh; } }
+@media (max-width: 768px) { .lost-title { padding-left: 0.28em; } }
+</style>
+
+<div class="lost-page">
+  <div>
+    <h1 class="lost-title">Wrong turn</h1>
+    <p class="lost-line">This road doesn't go anywhere. The way home is <a href="/">this way</a>.</p>
+  </div>
+</div>
