@@ -2356,3 +2356,13 @@ body.home .home-contact:hover {
 @media (max-width: 768px) {
   .writing-card__title { font-size: 1.1rem !important; }
 }
+
+/* Contrast: slightly brighter secondary text */
+.home-hero__by { color: rgba(232,228,220,0.6) !important; }
+.home-contact { color: rgba(232,228,220,0.65) !important; }
+.home-contact:hover { color: rgba(232,228,220,0.95) !important; }
+.nav__links a { color: rgba(232,228,220,0.75) !important; }
+.writing-card__date { color: rgba(232,228,220,0.55) !important; }
+.writing-card__subtitle { color: rgba(232,228,220,0.7) !important; }
+.writing-card__excerpt { color: rgba(232,228,220,0.6) !important; }
+.new-drawer__label { color: rgba(232,228,220,0.5) !important; }
