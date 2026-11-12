@@ -1,5 +1,6 @@
 ---
 title: Carrying the Devil Home
+pinned: true
 date: 2026-10-27
 thumb: /assets/images/IMG_9269.jpeg
 excerpt: I have spent my life in motion. Not always geographically, sometimes only inwardly, but rarely held by a single place long enough to mistake it for permanence.

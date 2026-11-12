@@ -2343,3 +2343,16 @@ body.home .home-contact:hover {
 @media (min-width: 2400px) {
   .new-drawer:not(.open) { right: -1000px !important; }
 }
+
+/* Words page: bigger titles with hover glow */
+.writing-card__title {
+  font-size: 1.2rem !important;
+  transition: text-shadow 0.35s ease, color 0.35s ease;
+}
+.writing-card:hover .writing-card__title {
+  color: rgba(245,248,252,1) !important;
+  text-shadow: 0 0 10px rgba(210,225,240,0.55), 0 0 26px rgba(210,225,240,0.28);
+}
+@media (max-width: 768px) {
+  .writing-card__title { font-size: 1.1rem !important; }
+}
