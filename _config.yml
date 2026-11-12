@@ -7,6 +7,7 @@ author: Margot
 theme: null
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
 
 collections:
   writing:
