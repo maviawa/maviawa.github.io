@@ -2366,3 +2366,16 @@ body.home .home-contact:hover {
 .writing-card__subtitle { color: rgba(232,228,220,0.7) !important; }
 .writing-card__excerpt { color: rgba(232,228,220,0.6) !important; }
 .new-drawer__label { color: rgba(232,228,220,0.5) !important; }
+
+/* Legal link */
+.site-legal { text-align: center; padding: 3rem 1rem 2rem; }
+.site-legal a {
+  font-family: var(--font-note);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(232,228,220,0.45);
+  transition: color 0.3s;
+}
+.site-legal a:hover { color: rgba(232,228,220,0.9); }

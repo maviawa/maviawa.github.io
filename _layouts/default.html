@@ -35,5 +35,6 @@
   </main>
 
   <script src="/assets/js/main.js"></script>
+  {% unless page.home or page.url == "/mentions-legales/" %}<footer class="site-legal"><a href="/mentions-legales/">Legal notice</a></footer>{% endunless %}
 </body>
 </html>
