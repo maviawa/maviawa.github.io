@@ -41,7 +41,7 @@ fname() { # file name -> safe lowercase .jpg name
 }
 words() { # "03_halloween-forest" -> "halloween forest"
   local b="${1%.*}"
-  echo "$b" | sed -E 's/^[0-9]+//; s/[_-]+/ /g; s/^ +| +$//g' | tr '[:upper:]' '[:lower:]'
+  echo "$b" | sed -E 's/^[0-9]+//; s/[_-]+/ /g; s/^ +| +$//g'
 }
 yq() { echo "$1" | sed 's/\\/\\\\/g; s/"/\\"/g'; }
 
